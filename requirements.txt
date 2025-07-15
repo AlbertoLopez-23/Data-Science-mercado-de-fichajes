@@ -6,3 +6,4 @@ seaborn==0.13.0
 scikit-optimize 
 scipy 
 xgboost
+jupyter

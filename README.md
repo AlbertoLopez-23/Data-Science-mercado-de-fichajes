@@ -1,6 +1,6 @@
-# 🏆 Predictor de Valor de Mercado de Jugadores de Fútbol
+# 🏆 Análisis de los factores determinantes en el valor de mercado de futbolistas mediante técnicas estadísticas y redes neuronales
 
-Este proyecto implementa un sistema completo de análisis y predicción del valor de mercado de jugadores de fútbol utilizando técnicas de Machine Learning, incluyendo clustering K-means, reducción de dimensionalidad con LASSO, modelos predictivos avanzados como XGBoost y SVR, y **redes neuronales** para predicción especializada por posición.
+Este proyecto implementa un sistema completo de análisis y predicción del valor de mercado de jugadores de fútbol utilizando técnicas de Machine Learning, incluyendo clustering K-means, reducción de dimensionalidad con LASSO, modelos predictivos avanzados como XGBoost y SVR, y **redes neuronales** para predicción especializada por posición. El objetivo es desplegar un protal en el que evaluar las predicciones y descubirri cuales osn los factores más influyentes en el valor de mercado de los futbolistas.
 
 ## 📁 Estructura del Proyecto
 
@@ -102,6 +102,7 @@ pip install -r requirements.txt
 - scikit-optimize
 - scipy
 - xgboost
+- jupyter
 - **tensorflow>=2.0** (para redes neuronales)
 - **keras** (para redes neuronales)
 
@@ -145,8 +146,6 @@ python SVR_no_clusters.py
 Los notebooks de redes neuronales deben ejecutarse en **Google Colab** o **Jupyter Notebook**:
 
 ```bash
-# Instalar Jupyter si no está instalado
-pip install jupyter
 
 # Ejecutar Jupyter Notebook
 jupyter notebook
@@ -159,13 +158,6 @@ jupyter notebook
 - `delanterosRN.ipynb` - Modelos especializados para delanteros
 - `generalRN.ipynb` - Modelos generales para todos los jugadores
 
-> **Nota**: Los notebooks están optimizados para Google Colab y incluyen early stopping, dropout y regularización para evitar overfitting.
-
-### Análisis Final
-```bash
-# Ejecutar análisis exploratorio completo
-python analisis_final.py
-```
 
 ## 🌐 Aplicación Web
 
