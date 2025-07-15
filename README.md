@@ -1,6 +1,6 @@
 # 🏆 Predictor de Valor de Mercado de Jugadores de Fútbol
 
-Este proyecto implementa un sistema completo de análisis y predicción del valor de mercado de jugadores de fútbol utilizando técnicas de Machine Learning, incluyendo clustering K-means, reducción de dimensionalidad con LASSO, y modelos predictivos avanzados como XGBoost y SVR.
+Este proyecto implementa un sistema completo de análisis y predicción del valor de mercado de jugadores de fútbol utilizando técnicas de Machine Learning, incluyendo clustering K-means, reducción de dimensionalidad con LASSO, modelos predictivos avanzados como XGBoost y SVR, y **redes neuronales** para predicción especializada por posición.
 
 ## 📁 Estructura del Proyecto
 
@@ -37,11 +37,21 @@ Códigos de procesamiento de datos y modelado que deben ejecutarse **en orden nu
 9. `07Lassoporteros.py` - Reduce dimensionalidad con LASSO para porteros
 10. `08kmeans.py` - Aplica clustering K-means para clasificar jugadores
 
-#### 🤖 Modelos Predictivos:
+#### 🤖 Modelos Predictivos Clásicos:
 - `XGBoost.py` - Modelo XGBoost con clusters
 - `XGBoost_no_clusters.py` - Modelo XGBoost sin clusters
 - `SVR.py` - Support Vector Regression con clusters
 - `SVR_no_clusters.py` - Support Vector Regression sin clusters
+
+#### 🧠 Modelos de Redes Neuronales (Jupyter Notebooks):
+- `porterosRN.ipynb` - Redes neuronales especializadas para porteros
+- `defensaRN.ipynb` - Redes neuronales especializadas para defensas
+- `centrocampistaRN.ipynb` - Redes neuronales especializadas para centrocampistas
+- `delanterosRN.ipynb` - Redes neuronales especializadas para delanteros
+- `generalRN.ipynb` - Redes neuronales generales (todos los jugadores)
+
+#### 📊 Análisis Final:
+- `analisis_final.py` - Análisis exploratorio completo y generación de reportes finales
 
 ### 📈 Resultados/
 Gráficas y análisis de resultados organizados por técnica:
@@ -49,6 +59,7 @@ Gráficas y análisis de resultados organizados por técnica:
 - **XGBoost/** - Métricas y visualizaciones del modelo XGBoost
 - **SVR/** - Métricas y visualizaciones del modelo SVR
 - **k-means/** - Análisis de clustering
+- **Redes_Neuronales/** - Resultados de los modelos de deep learning
 
 ### 🌐 web/
 Aplicación web interactiva para visualizar y utilizar los modelos:
@@ -91,6 +102,8 @@ pip install -r requirements.txt
 - scikit-optimize
 - scipy
 - xgboost
+- **tensorflow>=2.0** (para redes neuronales)
+- **keras** (para redes neuronales)
 
 ## 📝 Ejecución de los Códigos
 
@@ -114,6 +127,8 @@ python 08kmeans.py
 ```
 
 ### Entrenamiento de Modelos
+
+#### Modelos Clásicos
 Una vez procesados los datos, ejecutar los modelos predictivos:
 
 ```bash
@@ -124,6 +139,32 @@ python SVR.py
 # Modelos sin clustering (para comparación)
 python XGBoost_no_clusters.py
 python SVR_no_clusters.py
+```
+
+#### Modelos de Redes Neuronales
+Los notebooks de redes neuronales deben ejecutarse en **Google Colab** o **Jupyter Notebook**:
+
+```bash
+# Instalar Jupyter si no está instalado
+pip install jupyter
+
+# Ejecutar Jupyter Notebook
+jupyter notebook
+```
+
+**Notebooks disponibles:**
+- `porterosRN.ipynb` - Modelos especializados para porteros con TensorFlow/Keras
+- `defensaRN.ipynb` - Modelos especializados para defensas
+- `centrocampistaRN.ipynb` - Modelos especializados para centrocampistas  
+- `delanterosRN.ipynb` - Modelos especializados para delanteros
+- `generalRN.ipynb` - Modelos generales para todos los jugadores
+
+> **Nota**: Los notebooks están optimizados para Google Colab y incluyen early stopping, dropout y regularización para evitar overfitting.
+
+### Análisis Final
+```bash
+# Ejecutar análisis exploratorio completo
+python analisis_final.py
 ```
 
 ## 🌐 Aplicación Web
@@ -137,8 +178,6 @@ cd web/
 python -m http.server 8000
 ```
 Luego abre tu navegador en: `http://localhost:8000/pagina.html`
-
-
 
 ### Funcionalidades de la Web
 
@@ -184,13 +223,22 @@ El archivo `web/data.csv` contiene:
 - **Optimización**: Determinación del número óptimo de clusters
 
 ### 4. Modelos Predictivos
+
+#### Modelos Clásicos
 - **XGBoost**: Gradient boosting para predicción robusta
 - **SVR**: Support Vector Regression para relaciones no lineales
 - **Comparación**: Modelos con y sin información de clustering
 
+#### Modelos de Deep Learning
+- **Redes Neuronales**: Modelos especializados por posición usando TensorFlow/Keras
+- **Arquitectura**: Capas densas con dropout y regularización
+- **Optimización**: Early stopping para evitar overfitting
+- **Segmentación**: Modelos específicos para cada posición y cluster
+
 ### 5. Evaluación
-- **Métricas**: MAE, MSE, R²
+- **Métricas**: MAE, MSE, R², RMSE
 - **Validación cruzada**: Evaluación robusta del rendimiento
+- **Comparación de modelos**: Análisis de rendimiento entre técnicas clásicas y deep learning
 - **Visualizaciones**: Gráficas de residuos y predicciones
 
 ## 📊 Resultados
@@ -200,16 +248,28 @@ Los modelos desarrollados permiten:
 - **Identificación** de jugadores infravalorados/sobrevalorados  
 - **Análisis** de factores que más influyen en el valor
 - **Segmentación** inteligente de jugadores por características
+- **Comparación** entre enfoques clásicos y deep learning
 
 ## 🎯 Uso Recomendado
 
 1. **Para análisis completo**: Ejecuta todos los scripts en orden y revisa las gráficas en `Resultados/`
-2. **Para uso rápido**: Utiliza directamente la aplicación web con los datos ya procesados
-3. **Para investigación**: Examina los diferentes modelos y sus métricas de rendimiento
+2. **Para modelos de deep learning**: Utiliza los notebooks en Google Colab para entrenar redes neuronales especializadas
+3. **Para uso rápido**: Utiliza directamente la aplicación web con los datos ya procesados
+4. **Para investigación**: Examina los diferentes modelos y sus métricas de rendimiento, comparando enfoques clásicos vs deep learning
+
+## 🤖 Tecnologías Utilizadas
+
+- **Python 3.x**: Lenguaje de programación principal
+- **Pandas & NumPy**: Manipulación y análisis de datos
+- **Scikit-learn**: Modelos de machine learning clásicos
+- **XGBoost**: Gradient boosting avanzado
+- **TensorFlow/Keras**: Deep learning y redes neuronales
+- **Matplotlib & Seaborn**: Visualización de datos
+- **Jupyter Notebooks**: Análisis interactivo y experimentación
 
 ## 🤝 Contribución
 
-Este proyecto forma parte de un Trabajo de Fin de Máster sobre predicción de valor de mercado en fútbol utilizando técnicas avanzadas de Machine Learning.
+Este proyecto forma parte de un Trabajo de Fin de Máster sobre predicción de valor de mercado en fútbol utilizando técnicas avanzadas de Machine Learning, incluyendo tanto métodos clásicos como deep learning.
 
 ---
 
