@@ -1,0 +1,23 @@
+REPORTE DETALLADO - MODELOS SVR POR CLUSTER
+================================================================================
+
+Archivo procesado: DB_separadas/09_db_delantero_filtered_top40pct.csv
+Fecha de procesamiento: 2025-06-20 23:44:58.841593
+
+DISTRIBUCIÓN DE CLUSTERS:
+  Cluster 0: 104 muestras
+  Cluster 1: 258 muestras
+  Cluster 2: 4 muestras
+  Cluster 3: 81 muestras
+
+RESUMEN DE RESULTADOS:
+ Cluster  N_Muestras  N_Features  Train_R2   Test_R2    Train_MAE     Test_MAE    Train_MSE     Test_MSE   Train_RMSE    Test_RMSE  Train_MAPE  Test_MAPE  CV_Score  Overfitting_Ratio Best_Kernel     Best_C  Best_Gamma  Best_Epsilon
+       0         104          24  0.256661  0.270375 1.152048e+06 1.481694e+06 5.849380e+12 4.969098e+12 2.418549e+06 2.229147e+06   54.409390 311.698583  0.107898           0.949278         rbf   0.327632    0.100000      0.010000
+       1         258          24  0.835567  0.157515 2.587035e+06 5.342225e+06 7.619140e+12 4.931315e+13 2.760279e+06 7.022332e+06   58.024644  93.812152  0.281666           5.304663         rbf 100.000000    0.100000      0.468992
+       3          81          24  0.544350 -0.318014 1.085965e+07 1.363568e+07 1.853729e+14 2.967833e+14 1.361517e+07 1.722740e+07   30.707680  29.093479  0.305872           1.711717      linear   0.483691    0.083456      0.537705
+
+ESTADÍSTICAS GENERALES:
+Mejor R² Test: 0.2704 (Cluster 0)
+R² Test promedio: 0.0366
+Desviación estándar R² Test: 0.3123
+Clusters procesados exitosamente: 3

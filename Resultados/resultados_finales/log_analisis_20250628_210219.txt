@@ -1,0 +1,398 @@
+📝 Log guardándose en: resultados_finales/log_analisis_20250628_210219.txt
+🚀 INICIANDO ANÁLISIS EXPLORATORIO DE DATOS - FÚTBOL
+================================================================================
+📊 Cargando datos...
+📈 Dimensiones del dataset: (1875, 60)
+📋 Número de jugadores: 1,875
+📋 Número de variables: 60
+📋 Columnas disponibles: ['Nombre completo', 'Lugar de nacimiento (país)', 'Nacionalidad', 'Posición principal', 'Posición específica', 'Posición secundaria', 'Club actual', 'Proveedor', 'Fin de contrato', 'Valor de mercado actual (numérico)', 'Fecha de fichaje', 'comprado_por', 'Pie bueno', 'understat_matches', 'understat_minutes', 'understat_goals', 'understat_xg', 'understat_assists', 'understat_xa', 'understat_shots', 'understat_key_passes', 'understat_yellow_cards', 'understat_red_cards', 'overallrating', 'potential', 'crossing', 'finishing', 'headingaccuracy', 'shortpassing', 'volleys', 'dribbling', 'curve', 'fk_accuracy', 'longpassing', 'ballcontrol', 'acceleration', 'sprintspeed', 'agility', 'reactions', 'balance', 'shotpower', 'jumping', 'stamina', 'strength', 'longshots', 'aggression', 'interceptions', 'positioning', 'vision', 'penalties', 'composure', 'defensiveawareness', 'standingtackle', 'slidingtackle', 'gk_diving', 'gk_handling', 'gk_kicking', 'gk_positioning', 'gk_reflexes', 'Valor_Predicho']
+
+🔍 Valores nulos por columna (primeras 10):
+Proveedor               1168
+comprado_por             557
+Posición secundaria      533
+understat_red_cards      352
+understat_key_passes     352
+understat_shots          352
+understat_assists        352
+understat_xa             352
+understat_xg             352
+understat_goals          352
+dtype: int64
+
+================================================================================
+📊 ANÁLISIS EXPLORATORIO GENERAL
+================================================================================
+
+--- 📋 Información general del dataset ---
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 1875 entries, 0 to 1874
+Data columns (total 60 columns):
+ #   Column                              Non-Null Count  Dtype  
+---  ------                              --------------  -----  
+ 0   Nombre completo                     1875 non-null   object 
+ 1   Lugar de nacimiento (país)          1864 non-null   object 
+ 2   Nacionalidad                        1875 non-null   object 
+ 3   Posición principal                  1875 non-null   object 
+ 4   Posición específica                 1647 non-null   float64
+ 5   Posición secundaria                 1342 non-null   float64
+ 6   Club actual                         1875 non-null   object 
+ 7   Proveedor                           707 non-null    object 
+ 8   Fin de contrato                     1875 non-null   object 
+ 9   Valor de mercado actual (numérico)  1875 non-null   float64
+ 10  Fecha de fichaje                    1875 non-null   object 
+ 11  comprado_por                        1318 non-null   float64
+ 12  Pie bueno                           1861 non-null   float64
+ 13  understat_matches                   1523 non-null   float64
+ 14  understat_minutes                   1523 non-null   float64
+ 15  understat_goals                     1523 non-null   float64
+ 16  understat_xg                        1523 non-null   float64
+ 17  understat_assists                   1523 non-null   float64
+ 18  understat_xa                        1523 non-null   float64
+ 19  understat_shots                     1523 non-null   float64
+ 20  understat_key_passes                1523 non-null   float64
+ 21  understat_yellow_cards              1523 non-null   float64
+ 22  understat_red_cards                 1523 non-null   float64
+ 23  overallrating                       1875 non-null   float64
+ 24  potential                           1875 non-null   float64
+ 25  crossing                            1875 non-null   float64
+ 26  finishing                           1875 non-null   float64
+ 27  headingaccuracy                     1875 non-null   float64
+ 28  shortpassing                        1875 non-null   float64
+ 29  volleys                             1875 non-null   float64
+ 30  dribbling                           1875 non-null   float64
+ 31  curve                               1875 non-null   float64
+ 32  fk_accuracy                         1875 non-null   float64
+ 33  longpassing                         1875 non-null   float64
+ 34  ballcontrol                         1875 non-null   float64
+ 35  acceleration                        1875 non-null   float64
+ 36  sprintspeed                         1875 non-null   float64
+ 37  agility                             1875 non-null   float64
+ 38  reactions                           1875 non-null   float64
+ 39  balance                             1875 non-null   float64
+ 40  shotpower                           1875 non-null   float64
+ 41  jumping                             1875 non-null   float64
+ 42  stamina                             1875 non-null   float64
+ 43  strength                            1875 non-null   float64
+ 44  longshots                           1875 non-null   float64
+ 45  aggression                          1875 non-null   float64
+ 46  interceptions                       1875 non-null   float64
+ 47  positioning                         1875 non-null   float64
+ 48  vision                              1875 non-null   float64
+ 49  penalties                           1875 non-null   float64
+ 50  composure                           1875 non-null   float64
+ 51  defensiveawareness                  1875 non-null   float64
+ 52  standingtackle                      1875 non-null   float64
+ 53  slidingtackle                       1875 non-null   float64
+ 54  gk_diving                           1875 non-null   float64
+ 55  gk_handling                         1875 non-null   float64
+ 56  gk_kicking                          1875 non-null   float64
+ 57  gk_positioning                      1875 non-null   float64
+ 58  gk_reflexes                         1875 non-null   float64
+ 59  Valor_Predicho                      1875 non-null   float64
+dtypes: float64(52), object(8)
+memory usage: 879.0+ KB
+None
+
+--- 📊 Variables numéricas (52 variables) ---
+       Posición específica  Posición secundaria  Valor de mercado actual (numérico)  ...  gk_positioning  gk_reflexes  Valor_Predicho
+count          1647.000000          1342.000000                        1.875000e+03  ...     1875.000000  1875.000000    1.875000e+03
+mean              4.826351             5.948584                        1.206804e+07  ...       17.600533    17.905067    1.217994e+07
+std               4.000329             3.513206                        1.805213e+07  ...       20.367625    21.187603    1.747452e+07
+min               0.000000             0.000000                        0.000000e+00  ...        2.996105     2.996024   -2.210960e+05
+25%               1.000000             3.000000                        2.000000e+06  ...        7.997439     7.997358    2.301258e+06
+50%               6.000000             6.000000                        5.000000e+06  ...       10.998239    10.998158    6.013104e+06
+75%               9.000000             9.000000                        1.500000e+07  ...       13.999039    13.998958    1.514816e+07
+max              11.000000            11.000000                        2.000000e+08  ...       88.018781    90.019233    2.001425e+08
+
+[8 rows x 52 columns]
+
+--- 📝 Variables categóricas (8 variables) ---
+   Nombre completo: 1857 valores únicos
+   Lugar de nacimiento (país): 100 valores únicos
+   Nacionalidad: 363 valores únicos
+   Posición principal: 4 valores únicos
+   Club actual: 113 valores únicos
+
+--- ❌ Valores faltantes ---
+                Variable  Valores_Faltantes  Porcentaje
+7              Proveedor               1168   62.293333
+11          comprado_por                557   29.706667
+5    Posición secundaria                533   28.426667
+22   understat_red_cards                352   18.773333
+20  understat_key_passes                352   18.773333
+19       understat_shots                352   18.773333
+17     understat_assists                352   18.773333
+18          understat_xa                352   18.773333
+16          understat_xg                352   18.773333
+15       understat_goals                352   18.773333
+💾 Información básica guardada en: resultados_finales/informacion_basica.csv
+
+💰 VALORES DE MERCADO:
+   💰 Valor real - Media: €12,068,040
+   💰 Valor real - Mediana: €5,000,000
+   🎯 Valor predicho - Media: €12,179,942
+   🎯 Valor predicho - Mediana: €6,013,104
+
+🏆 TOP 10 EQUIPOS POR NÚMERO DE JUGADORES:
+Club actual
+VfB Stuttgart           28
+1.FC Heidenheim 1846    25
+Bolonia                 24
+TSG 1899 Hoffenheim     24
+Hellas Verona           24
+SV Werder Bremen        24
+1.FC Unión Berlín       24
+Valencia CF             24
+UD Las Palmas           23
+VfL Bochum              23
+Name: count, dtype: int64
+
+🌍 TOP 10 NACIONALIDADES:
+Lugar de nacimiento (país)
+España          325
+Francia         282
+Alemania        236
+Italia          154
+Inglaterra      126
+Países Bajos     54
+Brasil           51
+Portugal         39
+Argentina        38
+Dinamarca        33
+Name: count, dtype: int64
+
+================================================================================
+📊 CÁLCULO DE DIFERENCIAS VALOR PREDICHO VS VALOR REAL
+================================================================================
+
+--- 📊 Estadísticas ANTES del filtrado ---
+   📊 Total de instancias: 1,866
+   📊 Diferencia absoluta promedio: €110,753.34
+   📊 Diferencia relativa promedio: 28.27%
+   📊 Error absoluto medio: €1,356,308
+   📊 Error relativo medio: 39.92%
+   🟢 Predicciones superiores al valor real: 1,054 (56.5%)
+   🔴 Predicciones inferiores al valor real: 812 (43.5%)
+
+--- 🔍 APLICANDO FILTRO: Diferencia relativa ≤ 25% ---
+   ✅ Instancias originales: 1,866
+   ❌ Instancias eliminadas: 552 (29.6%)
+   ✅ Instancias restantes: 1,314 (70.4%)
+
+--- 🗑️ Estadísticas de instancias ELIMINADAS ---
+   📊 Diferencia relativa media: 94.60%
+   📊 Diferencia relativa mínima: -262.62%
+   📊 Diferencia relativa máxima: 8068.88%
+
+--- 📊 Estadísticas DESPUÉS del filtrado ---
+   📊 Diferencia absoluta promedio: €-164,111.88
+   📊 Diferencia absoluta mediana: €-21,859.50
+   📊 Desviación estándar: €1,787,873.54
+   📊 Diferencia relativa promedio: 0.41%
+   📊 Diferencia relativa mediana: -0.20%
+   📊 Error absoluto medio: €660,019
+   📊 Error relativo medio: 7.11%
+   🟢 Predicciones superiores al valor real (filtrado): 635 (48.3%)
+   🔴 Predicciones inferiores al valor real (filtrado): 679 (51.7%)
+
+================================================================================
+🔗 ANÁLISIS DE CORRELACIONES
+================================================================================
+
+--- 🔗 Top 20 variables más correlacionadas con Valor Predicho ---
+                Variable  Correlacion
+15             potential       0.6888
+14         overallrating       0.6305
+2           comprado_por       0.5848
+29             reactions       0.5529
+6        understat_goals       0.4870
+7           understat_xg       0.4759
+10       understat_shots       0.4662
+9           understat_xa       0.4407
+8      understat_assists       0.4349
+41             composure       0.4304
+11  understat_key_passes       0.4006
+39                vision       0.3759
+19          shortpassing       0.3422
+24           longpassing       0.3278
+25           ballcontrol       0.3095
+27           sprintspeed       0.3084
+31             shotpower       0.3005
+21             dribbling       0.2969
+28               agility       0.2914
+26          acceleration       0.2911
+💾 Correlaciones guardadas en: resultados_finales/correlaciones_variables.csv
+
+================================================================================
+📊 GENERANDO VISUALIZACIONES...
+================================================================================
+⚠️  NOTA: Las visualizaciones se basan en datos filtrados (diferencia relativa ≤ 25%)
+🟢 Verde: Predicción > Valor Real | 🔴 Rojo: Predicción < Valor Real
+💾 Visualización general guardada en: resultados_finales/analisis_eda_general.png
+
+================================================================================
+⚽ ANÁLISIS POR EQUIPOS DE FÚTBOL
+================================================================================
+⚠️  NOTA: Análisis basado en datos filtrados (diferencia relativa ≤ 25%)
+
+--- 🏆 Top 15 equipos con mayor diferencia relativa absoluta ---
+                         Dif_Rel_Media  Num_Jugadores
+Club actual                                          
+RC Lens                           9.45             13
+Ipswich Town                     -9.19             10
+Real Betis Balompié               9.14             10
+AJ Auxerre                       -8.92              4
+CA Osasuna                        8.08             13
+Sevilla FC                        7.35             15
+RCD Mallorca                      7.26              9
+Wolverhampton Wanderers          -7.21             16
+RC Celta de Vigo                  6.45             10
+Girona FC                         6.17              9
+CD Leganés                       -6.07              8
+Montpellier HSC                   6.00             12
+Rayo Vallecano                    5.86             10
+Hellas Verona                    -5.72             11
+Getafe CF                         5.11             11
+💾 Análisis de equipos guardado en: resultados_finales/analisis_equipos.png
+💾 Estadísticas de equipos guardadas en: resultados_finales/resultados_equipos.csv
+
+================================================================================
+🌍 ANÁLISIS POR NACIONALIDADES
+================================================================================
+⚠️  NOTA: Análisis basado en datos filtrados (diferencia relativa ≤ 25%)
+
+--- 🌟 Top 15 nacionalidades con mayor diferencia relativa absoluta ---
+                            Dif_Rel_Media  Num_Jugadores
+Lugar de nacimiento (país)                              
+Islandia                           -14.35              5
+Eslovaquia                           6.04              5
+Eslovenia                           -5.57              5
+Uruguay                             -5.30              7
+Suecia                               5.02             16
+Nigeria                              4.46             10
+Ghana                                4.11              8
+Yugoslavia (RFSY)                    3.83              5
+Inglaterra                          -3.34             98
+Colombia                             3.26              8
+Escocia                              3.13              6
+Malí                                 3.01              6
+Costa de Marfil                     -2.98             12
+Grecia                              -2.76              7
+Ucrania                              2.61              6
+💾 Análisis de nacionalidades guardado en: resultados_finales/analisis_nacionalidades.png
+💾 Estadísticas de nacionalidades guardadas en: resultados_finales/resultados_nacionalidades.csv
+
+================================================================================
+👕 ANÁLISIS POR PATROCINADORES
+================================================================================
+⚠️  NOTA: Análisis basado en datos filtrados (diferencia relativa ≤ 25%)
+
+--- 👕 Patrocinadores con mayor diferencia relativa promedio (datos filtrados) ---
+              Dif_Rel_Media  Dif_Rel_Mediana  Dif_Rel_Std  ...  Dif_Abs_Mediana  Valor_Real_Promedio  Valor_Pred_Promedio
+Proveedor                                                  ...                                                           
+Skechers               6.86             4.09        11.05  ...        1497736.0          41750000.00          42971660.50
+Mizuno                 3.51             1.90         5.15  ...         102497.0          19300000.00          19533763.75
+Puma                   1.35             0.23         9.04  ...          16670.0          15334042.55          15005517.80
+Uhlsport               0.92             2.91         9.08  ...          93930.0           7300000.00           7374754.00
+Nike                   0.48            -0.30         9.62  ...         -67826.0          21718367.35          21701172.57
+adidas                 0.26            -0.25         8.42  ...         -37820.0          20715777.78          20420096.57
+Under Armour          -0.31            -0.42        11.69  ...        -269930.0          30318181.82          28922963.18
+KEEPERsport           -6.35           -16.24        22.52  ...         -22224.0            233333.33            223164.67
+
+[8 rows x 8 columns]
+
+--- ⭐ Patrocinadores con menor diferencia relativa promedio (datos filtrados) ---
+              Dif_Rel_Media  Dif_Rel_Mediana  Dif_Rel_Std  ...  Dif_Abs_Mediana  Valor_Real_Promedio  Valor_Pred_Promedio
+Proveedor                                                  ...                                                           
+Skechers               6.86             4.09        11.05  ...        1497736.0          41750000.00          42971660.50
+Mizuno                 3.51             1.90         5.15  ...         102497.0          19300000.00          19533763.75
+Puma                   1.35             0.23         9.04  ...          16670.0          15334042.55          15005517.80
+Uhlsport               0.92             2.91         9.08  ...          93930.0           7300000.00           7374754.00
+Nike                   0.48            -0.30         9.62  ...         -67826.0          21718367.35          21701172.57
+adidas                 0.26            -0.25         8.42  ...         -37820.0          20715777.78          20420096.57
+Under Armour          -0.31            -0.42        11.69  ...        -269930.0          30318181.82          28922963.18
+KEEPERsport           -6.35           -16.24        22.52  ...         -22224.0            233333.33            223164.67
+
+[8 rows x 8 columns]
+💾 Análisis de patrocinadores guardado en: resultados_finales/analisis_patrocinadores.png
+💾 Estadísticas de patrocinadores guardadas en: resultados_finales/resultados_patrocinadores.csv
+
+================================================================================
+📋 RESUMEN EJECUTIVO
+================================================================================
+
+RESUMEN DEL ANÁLISIS EXPLORATORIO DE DATOS - FÚTBOL
+==================================================
+📋 NOTA IMPORTANTE: Este análisis excluye instancias con diferencia relativa > 25%
+🔢 CÁLCULO: Diferencia = Valor Predicho - Valor Real
+🟢 Valores positivos: Predicción > Valor Real
+🔴 Valores negativos: Predicción < Valor Real
+
+📊 INFORMACIÓN GENERAL:
+- Total de jugadores analizados (después del filtro): 1,314
+- Total de variables: 62
+- Equipos únicos: 99
+- Nacionalidades únicas: 93
+- Patrocinadores únicos: 11
+
+🔍 FILTRADO DE DATOS:
+- Criterio aplicado: Diferencia relativa absoluta ≤ 25%
+- Instancias incluidas en el análisis: 1,314
+
+💰 DIFERENCIAS VALOR PREDICHO VS VALOR REAL (DATOS FILTRADOS):
+- Diferencia promedio: €-164,112
+- Diferencia relativa promedio: 0.4%
+- Desviación estándar: €1,787,874
+- Error absoluto medio: €660,019
+- Error relativo medio: 7.11%
+- 🟢 Predicciones superiores al valor real: 635 (48.3%)
+- 🔴 Predicciones inferiores al valor real: 679 (51.7%)
+
+🔗 TOP 5 VARIABLES MÁS CORRELACIONADAS CON VALOR PREDICHO:
+   potential: 0.6888
+   overallrating: 0.6305
+   comprado_por: 0.5848
+   reactions: 0.5529
+   understat_goals: 0.4870
+
+⚽ EQUIPOS CON MAYOR DIFERENCIA RELATIVA (DATOS FILTRADOS):
+   (Valores positivos: predicción > valor real)
+   1. RC Lens: 9.45% (13.0 jugadores)
+   2. Ipswich Town: -9.19% (10.0 jugadores)
+   3. Real Betis Balompié: 9.14% (10.0 jugadores)
+
+🌍 NACIONALIDADES CON MAYOR DIFERENCIA RELATIVA (DATOS FILTRADOS):
+   (Valores positivos: predicción > valor real)
+   1. Islandia: -14.35% (5.0 jugadores)
+   2. Eslovaquia: 6.04% (5.0 jugadores)
+   3. Eslovenia: -5.57% (5.0 jugadores)
+
+👕 PATROCINADORES CON MAYOR DIFERENCIA RELATIVA (DATOS FILTRADOS):
+   (Valores positivos: predicción > valor real)
+   1. Skechers: 6.86% (4.0 jugadores)
+   2. Mizuno: 3.51% (4.0 jugadores)
+   3. Puma: 1.35% (94.0 jugadores)
+
+📁 ARCHIVOS GENERADOS EN 'resultados_finales':
+   • analisis_eda_general.png
+   • analisis_equipos.png
+   • analisis_nacionalidades.png
+   • analisis_patrocinadores.png
+   • informacion_basica.csv
+   • correlaciones_variables.csv
+   • resultados_equipos.csv
+   • resultados_nacionalidades.csv
+   • resultados_patrocinadores.csv
+   • data_con_diferencias_filtrado.csv (solo instancias con diff. rel. ≤ 25%)
+   • resumen_ejecutivo.txt
+   • log_analisis_[timestamp].txt
+
+💾 Resumen ejecutivo guardado en: resultados_finales/resumen_ejecutivo.txt
+💾 Dataset filtrado con diferencias guardado en: resultados_finales/data_con_diferencias_filtrado.csv
+   ⚠️  NOTA: Este archivo contiene solo instancias con diferencia relativa ≤ 25%
+   🔢 CÁLCULO: Diferencia = Valor Predicho - Valor Real
+
+🎉 ¡ANÁLISIS COMPLETADO CON ÉXITO!
+📁 Todos los archivos guardados en: resultados_finales
+📝 Log detallado guardado en: resultados_finales/log_analisis_20250628_210219.txt

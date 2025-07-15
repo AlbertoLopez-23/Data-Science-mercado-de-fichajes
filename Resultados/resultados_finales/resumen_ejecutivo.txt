@@ -1,0 +1,66 @@
+
+RESUMEN DEL ANÁLISIS EXPLORATORIO DE DATOS - FÚTBOL
+==================================================
+📋 NOTA IMPORTANTE: Este análisis excluye instancias con diferencia relativa > 25%
+🔢 CÁLCULO: Diferencia = Valor Predicho - Valor Real
+🟢 Valores positivos: Predicción > Valor Real
+🔴 Valores negativos: Predicción < Valor Real
+
+📊 INFORMACIÓN GENERAL:
+- Total de jugadores analizados (después del filtro): 1,314
+- Total de variables: 62
+- Equipos únicos: 99
+- Nacionalidades únicas: 93
+- Patrocinadores únicos: 11
+
+🔍 FILTRADO DE DATOS:
+- Criterio aplicado: Diferencia relativa absoluta ≤ 25%
+- Instancias incluidas en el análisis: 1,314
+
+💰 DIFERENCIAS VALOR PREDICHO VS VALOR REAL (DATOS FILTRADOS):
+- Diferencia promedio: €-164,112
+- Diferencia relativa promedio: 0.4%
+- Desviación estándar: €1,787,874
+- Error absoluto medio: €660,019
+- Error relativo medio: 7.11%
+- 🟢 Predicciones superiores al valor real: 635 (48.3%)
+- 🔴 Predicciones inferiores al valor real: 679 (51.7%)
+
+🔗 TOP 5 VARIABLES MÁS CORRELACIONADAS CON VALOR PREDICHO:
+   potential: 0.6888
+   overallrating: 0.6305
+   comprado_por: 0.5848
+   reactions: 0.5529
+   understat_goals: 0.4870
+
+⚽ EQUIPOS CON MAYOR DIFERENCIA RELATIVA (DATOS FILTRADOS):
+   (Valores positivos: predicción > valor real)
+   1. RC Lens: 9.45% (13.0 jugadores)
+   2. Ipswich Town: -9.19% (10.0 jugadores)
+   3. Real Betis Balompié: 9.14% (10.0 jugadores)
+
+🌍 NACIONALIDADES CON MAYOR DIFERENCIA RELATIVA (DATOS FILTRADOS):
+   (Valores positivos: predicción > valor real)
+   1. Islandia: -14.35% (5.0 jugadores)
+   2. Eslovaquia: 6.04% (5.0 jugadores)
+   3. Eslovenia: -5.57% (5.0 jugadores)
+
+👕 PATROCINADORES CON MAYOR DIFERENCIA RELATIVA (DATOS FILTRADOS):
+   (Valores positivos: predicción > valor real)
+   1. Skechers: 6.86% (4.0 jugadores)
+   2. Mizuno: 3.51% (4.0 jugadores)
+   3. Puma: 1.35% (94.0 jugadores)
+
+📁 ARCHIVOS GENERADOS EN 'resultados_finales':
+   • analisis_eda_general.png
+   • analisis_equipos.png
+   • analisis_nacionalidades.png
+   • analisis_patrocinadores.png
+   • informacion_basica.csv
+   • correlaciones_variables.csv
+   • resultados_equipos.csv
+   • resultados_nacionalidades.csv
+   • resultados_patrocinadores.csv
+   • data_con_diferencias_filtrado.csv (solo instancias con diff. rel. ≤ 25%)
+   • resumen_ejecutivo.txt
+   • log_analisis_[timestamp].txt

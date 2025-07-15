@@ -1,0 +1,697 @@
+📝 Salida del análisis guardándose en: k-means/kmeans_20250609_222038.txt
+🕐 Inicio del análisis: 2025-06-09 22:20:38
+============================================================
+🚀 INICIANDO CLUSTERING K-MEANS PARA TODOS LOS ARCHIVOS
+============================================================
+🎯 CONFIGURACIÓN DEL ANÁLISIS:
+   📊 Variables para clustering: Valor de mercado + Overall rating
+   🔍 Método de selección K: PRIORIDAD AL MÉTODO DEL CODO
+   📈 Método de silueta: Solo como información complementaria
+============================================================
+📁 Carpeta 'k-means' creada/verificada
+📁 Carpeta de origen: DB_separadas
+📊 Archivos encontrados: 4
+📁 Gráficos se guardarán en: k-means/
+📁 Datasets etiquetados se guardarán en: DB_separadas/
+
+============================================================
+🎯 PROCESANDO: 08_db_delantero_filtered_top40pct.csv
+============================================================
+📊 Dimensiones del dataset: (447, 33)
+
+🔧 PREPARANDO DATOS PARA CLUSTERING:
+   📊 Variables seleccionadas para clustering:
+   - Valor de mercado actual (numérico) (Variable objetivo)
+   - overallrating (Rating FIFA)
+   Filas antes de limpiar: 447
+   Filas después de limpiar: 447
+   Filas eliminadas: 0
+
+📈 ESTADÍSTICAS DE LAS VARIABLES:
+   Valor de mercado actual (numérico):
+     Mínimo: $0
+     Máximo: $200,000,000
+     Promedio: $15,578,803
+     Mediana: $7,000,000
+   overallrating:
+     Mínimo: -3
+     Máximo: 3
+     Promedio: 0.1
+     Mediana: 0
+   Datos estandarizados: (447, 2)
+   Rango de K para análisis: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+🔍 MÉTODO DEL CODO para 08_db_delantero_filtered_top40pct.csv
+--------------------------------------------------
+   K=1: Inercia = 894.00
+   K=2: Inercia = 489.77
+   K=3: Inercia = 306.79
+   K=4: Inercia = 207.38
+   K=5: Inercia = 142.68
+   K=6: Inercia = 106.31
+   K=7: Inercia = 85.17
+   K=8: Inercia = 73.64
+   K=9: Inercia = 64.56
+   K=10: Inercia = 57.17
+   🎯 K óptimo detectado por método del codo: 4
+   📊 Distancia perpendicular máxima en K=4: 4.38
+📊 Gráfico del codo guardado: k-means/01_metodo_codo_08_db_delantero_filtered_top40pct.png
+
+📊 ANÁLISIS DE SILUETA para 08_db_delantero_filtered_top40pct.csv
+--------------------------------------------------
+   K=2: Score de silueta = 0.5223
+   K=3: Score de silueta = 0.4431
+   K=4: Score de silueta = 0.4597
+   K=5: Score de silueta = 0.4410
+   K=6: Score de silueta = 0.4449
+   K=7: Score de silueta = 0.4318
+   K=8: Score de silueta = 0.4047
+   K=9: Score de silueta = 0.4194
+   K=10: Score de silueta = 0.4213
+📊 Gráfico de silueta guardado: k-means/02_analisis_silueta_08_db_delantero_filtered_top40pct.png
+
+🎯 DECISIÓN DE K:
+   K sugerido por método del codo: 4 ⭐ (PRIORITARIO)
+   K sugerido por análisis de silueta: 2 (score: 0.5223)
+   K FINAL seleccionado: 4
+   Lógica aplicada: Prioridad absoluta al método del codo
+   ⚠️ Métodos difieren significativamente (diferencia = 2)
+       Manteniendo K del codo = 4 por prioridad establecida
+
+🔄 APLICANDO K-MEANS CON K=4:
+   ✅ Clustering completado exitosamente
+   📊 Clusters generados: [0, 1, 2, 3]
+   📉 Inercia total: 207.38
+   🎯 Score de silueta: 0.4597
+
+📊 EVALUACIÓN DE CALIDAD DE CLUSTERS:
+--------------------------------------------------
+   🎯 Score de Silueta Global: 0.4597
+   🟠 Calidad según Silueta: REGULAR
+   📉 Inercia Total (WCSS): 207.38
+   📊 Inercia Promedio por Cluster: 51.85
+
+   📋 ANÁLISIS POR CLUSTER INDIVIDUAL:
+     Cluster 0:
+       👥 Tamaño: 104
+       🎯 Silueta promedio: 0.4680 ± 0.1672
+       📉 Inercia intra-cluster: 48.01
+       📊 Inercia promedio por punto: 0.4616
+       🟡 Calidad: REGULAR
+     Cluster 1:
+       👥 Tamaño: 258
+       🎯 Silueta promedio: 0.4833 ± 0.1862
+       📉 Inercia intra-cluster: 75.93
+       📊 Inercia promedio por punto: 0.2943
+       🟡 Calidad: REGULAR
+     Cluster 2:
+       👥 Tamaño: 4
+       🎯 Silueta promedio: 0.6207 ± 0.1517
+       📉 Inercia intra-cluster: 7.43
+       📊 Inercia promedio por punto: 1.8580
+       🟢 Calidad: BUENA
+     Cluster 3:
+       👥 Tamaño: 81
+       🎯 Silueta promedio: 0.3658 ± 0.1783
+       📉 Inercia intra-cluster: 76.01
+       📊 Inercia promedio por punto: 0.9384
+       🟡 Calidad: REGULAR
+
+   📈 MÉTRICAS DE COHESIÓN Y SEPARACIÓN:
+     🔄 Distancia mínima entre centroides: 1.5041
+     🔄 Distancia máxima entre centroides: 8.1368
+     📏 Ratio separación (max/min): 5.41
+
+   🏆 RESUMEN DE CALIDAD:
+     🟢 Clusters de calidad BUENA: 1/4
+     🟡 Clusters de calidad REGULAR: 3/4
+     🔴 Clusters de calidad POBRE: 0/4
+     ✅ CALIDAD GENERAL DEL CLUSTERING: BUENA
+
+📊 ANÁLISIS DE CLUSTERS CON DATOS ORIGINALES:
+   Cluster 0: 104 jugadores
+     💰 Valor promedio: $2,575,240
+     🎮 Overall promedio: -1.3
+     💰 Valor mediana: $1,500,000
+     🎮 Overall mediana: -1
+     🟡 Calidad del cluster: REGULAR
+     🎯 Score silueta cluster: 0.4680
+     📉 Inercia intra-cluster: 48.01
+   Cluster 1: 258 jugadores
+     💰 Valor promedio: $9,239,922
+     🎮 Overall promedio: 0.2
+     💰 Valor mediana: $7,000,000
+     🎮 Overall mediana: 0
+     🟡 Calidad del cluster: REGULAR
+     🎯 Score silueta cluster: 0.4833
+     📉 Inercia intra-cluster: 75.93
+   Cluster 2: 4 jugadores
+     💰 Valor promedio: $170,000,000
+     🎮 Overall promedio: 2.4
+     💰 Valor mediana: $175,000,000
+     🎮 Overall mediana: 3
+     🟢 Calidad del cluster: BUENA
+     🎯 Score silueta cluster: 0.6207
+     📉 Inercia intra-cluster: 7.43
+   Cluster 3: 81 jugadores
+     💰 Valor promedio: $44,839,506
+     🎮 Overall promedio: 1.2
+     💰 Valor mediana: $40,000,000
+     🎮 Overall mediana: 1
+     🟡 Calidad del cluster: REGULAR
+     🎯 Score silueta cluster: 0.3658
+     📉 Inercia intra-cluster: 76.01
+
+📊 CREANDO VISUALIZACIONES:
+📊 Gráfico detallado de silueta guardado: k-means/03_silueta_detallada_08_db_delantero_filtered_top40pct_k4.png
+   Saltando PCA - usando variables originales para visualización
+
+💾 GUARDANDO DATASET ETIQUETADO:
+   Clusters asignados en dataset: [0, 1, 2, 3]
+   ✅ Dataset etiquetado guardado: DB_separadas/09_db_delantero_filtered_top40pct.csv
+   📊 Dimensiones: (447, 34)
+   🏷️ Filas con cluster asignado: 447
+   ❌ Filas sin cluster (datos faltantes): 0
+
+📊 CREANDO BOXPLOTS DETALLADOS para 08_db_delantero_filtered_top40pct.csv
+📊 Boxplots detallados guardados: k-means/05_boxplots_detallados_08_db_delantero_filtered_top40pct_k4.png
+📊 Comparación de clusters guardada: k-means/06_comparacion_clusters_08_db_delantero_filtered_top40pct_k4.png
+
+🎨 CREANDO GRÁFICO DE DISPERSIÓN POR CLUSTERS para 08_db_delantero_filtered_top40pct.csv
+🎨 Gráfico de dispersión guardado: k-means/07_dispersion_clusters_08_db_delantero_filtered_top40pct_k4.png
+🎨 Gráfico de dispersión grande guardado: k-means/08_dispersion_grande_08_db_delantero_filtered_top40pct_k4.png
+
+============================================================
+🎯 PROCESANDO: 08_db_defensa_filtered_top40pct.csv
+============================================================
+📊 Dimensiones del dataset: (671, 33)
+
+🔧 PREPARANDO DATOS PARA CLUSTERING:
+   📊 Variables seleccionadas para clustering:
+   - Valor de mercado actual (numérico) (Variable objetivo)
+   - overallrating (Rating FIFA)
+   Filas antes de limpiar: 671
+   Filas después de limpiar: 671
+   Filas eliminadas: 0
+
+📈 ESTADÍSTICAS DE LAS VARIABLES:
+   Valor de mercado actual (numérico):
+     Mínimo: $0
+     Máximo: $80,000,000
+     Promedio: $10,918,219
+     Mediana: $6,000,000
+   overallrating:
+     Mínimo: -3
+     Máximo: 3
+     Promedio: 0.0
+     Mediana: 0
+   Datos estandarizados: (671, 2)
+   Rango de K para análisis: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+🔍 MÉTODO DEL CODO para 08_db_defensa_filtered_top40pct.csv
+--------------------------------------------------
+   K=1: Inercia = 1342.00
+   K=2: Inercia = 675.02
+   K=3: Inercia = 422.94
+   K=4: Inercia = 292.71
+   K=5: Inercia = 217.10
+   K=6: Inercia = 184.97
+   K=7: Inercia = 154.02
+   K=8: Inercia = 133.09
+   K=9: Inercia = 115.65
+   K=10: Inercia = 103.82
+   🎯 K óptimo detectado por método del codo: 3
+   📊 Distancia perpendicular máxima en K=3: 4.68
+📊 Gráfico del codo guardado: k-means/01_metodo_codo_08_db_defensa_filtered_top40pct.png
+
+📊 ANÁLISIS DE SILUETA para 08_db_defensa_filtered_top40pct.csv
+--------------------------------------------------
+   K=2: Score de silueta = 0.5184
+   K=3: Score de silueta = 0.4333
+   K=4: Score de silueta = 0.4461
+   K=5: Score de silueta = 0.4265
+   K=6: Score de silueta = 0.3951
+   K=7: Score de silueta = 0.3820
+   K=8: Score de silueta = 0.4139
+   K=9: Score de silueta = 0.3969
+   K=10: Score de silueta = 0.3838
+📊 Gráfico de silueta guardado: k-means/02_analisis_silueta_08_db_defensa_filtered_top40pct.png
+
+🎯 DECISIÓN DE K:
+   K sugerido por método del codo: 3 ⭐ (PRIORITARIO)
+   K sugerido por análisis de silueta: 2 (score: 0.5184)
+   K FINAL seleccionado: 3
+   Lógica aplicada: Prioridad absoluta al método del codo
+   ✅ Métodos muy cercanos (diferencia ≤ 1)
+
+🔄 APLICANDO K-MEANS CON K=3:
+   ✅ Clustering completado exitosamente
+   📊 Clusters generados: [0, 1, 2]
+   📉 Inercia total: 422.94
+   🎯 Score de silueta: 0.4333
+
+📊 EVALUACIÓN DE CALIDAD DE CLUSTERS:
+--------------------------------------------------
+   🎯 Score de Silueta Global: 0.4333
+   🟠 Calidad según Silueta: REGULAR
+   📉 Inercia Total (WCSS): 422.94
+   📊 Inercia Promedio por Cluster: 140.98
+
+   📋 ANÁLISIS POR CLUSTER INDIVIDUAL:
+     Cluster 0:
+       👥 Tamaño: 339
+       🎯 Silueta promedio: 0.4847 ± 0.1449
+       📉 Inercia intra-cluster: 189.77
+       📊 Inercia promedio por punto: 0.5598
+       🟡 Calidad: REGULAR
+     Cluster 1:
+       👥 Tamaño: 59
+       🎯 Silueta promedio: 0.4273 ± 0.1809
+       📉 Inercia intra-cluster: 82.40
+       📊 Inercia promedio por punto: 1.3965
+       🟡 Calidad: REGULAR
+     Cluster 2:
+       👥 Tamaño: 273
+       🎯 Silueta promedio: 0.3708 ± 0.1700
+       📉 Inercia intra-cluster: 150.77
+       📊 Inercia promedio por punto: 0.5523
+       🟡 Calidad: REGULAR
+
+   📈 MÉTRICAS DE COHESIÓN Y SEPARACIÓN:
+     🔄 Distancia mínima entre centroides: 1.4991
+     🔄 Distancia máxima entre centroides: 3.8705
+     📏 Ratio separación (max/min): 2.58
+
+   🏆 RESUMEN DE CALIDAD:
+     🟢 Clusters de calidad BUENA: 0/3
+     🟡 Clusters de calidad REGULAR: 3/3
+     🔴 Clusters de calidad POBRE: 0/3
+     ✅ CALIDAD GENERAL DEL CLUSTERING: BUENA
+
+📊 ANÁLISIS DE CLUSTERS CON DATOS ORIGINALES:
+   Cluster 0: 339 jugadores
+     💰 Valor promedio: $3,294,469
+     🎮 Overall promedio: -0.6
+     💰 Valor mediana: $2,500,000
+     🎮 Overall mediana: -0
+     🟡 Calidad del cluster: REGULAR
+     🎯 Score silueta cluster: 0.4847
+     📉 Inercia intra-cluster: 189.77
+   Cluster 1: 59 jugadores
+     💰 Valor promedio: $45,779,661
+     🎮 Overall promedio: 1.4
+     💰 Valor mediana: $40,000,000
+     🎮 Overall mediana: 1
+     🟡 Calidad del cluster: REGULAR
+     🎯 Score silueta cluster: 0.4273
+     📉 Inercia intra-cluster: 82.40
+   Cluster 2: 273 jugadores
+     💰 Valor promedio: $12,850,916
+     🎮 Overall promedio: 0.5
+     💰 Valor mediana: $12,000,000
+     🎮 Overall mediana: 0
+     🟡 Calidad del cluster: REGULAR
+     🎯 Score silueta cluster: 0.3708
+     📉 Inercia intra-cluster: 150.77
+
+📊 CREANDO VISUALIZACIONES:
+📊 Gráfico detallado de silueta guardado: k-means/03_silueta_detallada_08_db_defensa_filtered_top40pct_k3.png
+   Saltando PCA - usando variables originales para visualización
+
+💾 GUARDANDO DATASET ETIQUETADO:
+   Clusters asignados en dataset: [0, 1, 2]
+   ✅ Dataset etiquetado guardado: DB_separadas/09_db_defensa_filtered_top40pct.csv
+   📊 Dimensiones: (671, 34)
+   🏷️ Filas con cluster asignado: 671
+   ❌ Filas sin cluster (datos faltantes): 0
+
+📊 CREANDO BOXPLOTS DETALLADOS para 08_db_defensa_filtered_top40pct.csv
+📊 Boxplots detallados guardados: k-means/05_boxplots_detallados_08_db_defensa_filtered_top40pct_k3.png
+📊 Comparación de clusters guardada: k-means/06_comparacion_clusters_08_db_defensa_filtered_top40pct_k3.png
+
+🎨 CREANDO GRÁFICO DE DISPERSIÓN POR CLUSTERS para 08_db_defensa_filtered_top40pct.csv
+🎨 Gráfico de dispersión guardado: k-means/07_dispersion_clusters_08_db_defensa_filtered_top40pct_k3.png
+🎨 Gráfico de dispersión grande guardado: k-means/08_dispersion_grande_08_db_defensa_filtered_top40pct_k3.png
+
+============================================================
+🎯 PROCESANDO: 08_db_porteros_filtered_top40pct.csv
+============================================================
+📊 Dimensiones del dataset: (228, 25)
+
+🔧 PREPARANDO DATOS PARA CLUSTERING:
+   📊 Variables seleccionadas para clustering:
+   - Valor de mercado actual (numérico) (Variable objetivo)
+   - overallrating (Rating FIFA)
+   Filas antes de limpiar: 228
+   Filas después de limpiar: 228
+   Filas eliminadas: 0
+
+📈 ESTADÍSTICAS DE LAS VARIABLES:
+   Valor de mercado actual (numérico):
+     Mínimo: $0
+     Máximo: $40,000,000
+     Promedio: $5,251,864
+     Mediana: $1,500,000
+   overallrating:
+     Mínimo: -3
+     Máximo: 3
+     Promedio: -0.2
+     Mediana: -0
+   Datos estandarizados: (228, 2)
+   Rango de K para análisis: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+🔍 MÉTODO DEL CODO para 08_db_porteros_filtered_top40pct.csv
+--------------------------------------------------
+   K=1: Inercia = 456.00
+   K=2: Inercia = 210.79
+   K=3: Inercia = 105.73
+   K=4: Inercia = 73.68
+   K=5: Inercia = 55.09
+   K=6: Inercia = 43.04
+   K=7: Inercia = 35.41
+   K=8: Inercia = 30.77
+   K=9: Inercia = 25.65
+   K=10: Inercia = 21.93
+   🎯 K óptimo detectado por método del codo: 3
+   📊 Distancia perpendicular máxima en K=3: 5.26
+📊 Gráfico del codo guardado: k-means/01_metodo_codo_08_db_porteros_filtered_top40pct.png
+
+📊 ANÁLISIS DE SILUETA para 08_db_porteros_filtered_top40pct.csv
+--------------------------------------------------
+   K=2: Score de silueta = 0.5462
+   K=3: Score de silueta = 0.4988
+   K=4: Score de silueta = 0.4620
+   K=5: Score de silueta = 0.4372
+   K=6: Score de silueta = 0.4525
+   K=7: Score de silueta = 0.4668
+   K=8: Score de silueta = 0.4714
+   K=9: Score de silueta = 0.4737
+   K=10: Score de silueta = 0.4594
+📊 Gráfico de silueta guardado: k-means/02_analisis_silueta_08_db_porteros_filtered_top40pct.png
+
+🎯 DECISIÓN DE K:
+   K sugerido por método del codo: 3 ⭐ (PRIORITARIO)
+   K sugerido por análisis de silueta: 2 (score: 0.5462)
+   K FINAL seleccionado: 3
+   Lógica aplicada: Prioridad absoluta al método del codo
+   ✅ Métodos muy cercanos (diferencia ≤ 1)
+
+🔄 APLICANDO K-MEANS CON K=3:
+   ✅ Clustering completado exitosamente
+   📊 Clusters generados: [0, 1, 2]
+   📉 Inercia total: 105.73
+   🎯 Score de silueta: 0.4988
+
+📊 EVALUACIÓN DE CALIDAD DE CLUSTERS:
+--------------------------------------------------
+   🎯 Score de Silueta Global: 0.4988
+   🟠 Calidad según Silueta: REGULAR
+   📉 Inercia Total (WCSS): 105.73
+   📊 Inercia Promedio por Cluster: 35.24
+
+   📋 ANÁLISIS POR CLUSTER INDIVIDUAL:
+     Cluster 0:
+       👥 Tamaño: 87
+       🎯 Silueta promedio: 0.5770 ± 0.1639
+       📉 Inercia intra-cluster: 25.94
+       📊 Inercia promedio por punto: 0.2982
+       🟢 Calidad: BUENA
+     Cluster 1:
+       👥 Tamaño: 111
+       🎯 Silueta promedio: 0.4478 ± 0.1651
+       📉 Inercia intra-cluster: 47.09
+       📊 Inercia promedio por punto: 0.4242
+       🟡 Calidad: REGULAR
+     Cluster 2:
+       👥 Tamaño: 30
+       🎯 Silueta promedio: 0.4605 ± 0.1920
+       📉 Inercia intra-cluster: 32.69
+       📊 Inercia promedio por punto: 1.0897
+       🟡 Calidad: REGULAR
+
+   📈 MÉTRICAS DE COHESIÓN Y SEPARACIÓN:
+     🔄 Distancia mínima entre centroides: 1.5570
+     🔄 Distancia máxima entre centroides: 3.6788
+     📏 Ratio separación (max/min): 2.36
+
+   🏆 RESUMEN DE CALIDAD:
+     🟢 Clusters de calidad BUENA: 1/3
+     🟡 Clusters de calidad REGULAR: 2/3
+     🔴 Clusters de calidad POBRE: 0/3
+     🌟 CALIDAD GENERAL DEL CLUSTERING: EXCELENTE
+
+📊 ANÁLISIS DE CLUSTERS CON DATOS ORIGINALES:
+   Cluster 0: 87 jugadores
+     💰 Valor promedio: $527,874
+     🎮 Overall promedio: -1.5
+     💰 Valor mediana: $300,000
+     🎮 Overall mediana: -1
+     🟢 Calidad del cluster: BUENA
+     🎯 Score silueta cluster: 0.5770
+     📉 Inercia intra-cluster: 25.94
+   Cluster 1: 111 jugadores
+     💰 Valor promedio: $4,157,658
+     🎮 Overall promedio: 0.3
+     💰 Valor mediana: $3,000,000
+     🎮 Overall mediana: 0
+     🟡 Calidad del cluster: REGULAR
+     🎯 Score silueta cluster: 0.4478
+     📉 Inercia intra-cluster: 47.09
+   Cluster 2: 30 jugadores
+     💰 Valor promedio: $23,000,000
+     🎮 Overall promedio: 1.4
+     💰 Valor mediana: $21,000,000
+     🎮 Overall mediana: 1
+     🟡 Calidad del cluster: REGULAR
+     🎯 Score silueta cluster: 0.4605
+     📉 Inercia intra-cluster: 32.69
+
+📊 CREANDO VISUALIZACIONES:
+📊 Gráfico detallado de silueta guardado: k-means/03_silueta_detallada_08_db_porteros_filtered_top40pct_k3.png
+   Saltando PCA - usando variables originales para visualización
+
+💾 GUARDANDO DATASET ETIQUETADO:
+   Clusters asignados en dataset: [0, 1, 2]
+   ✅ Dataset etiquetado guardado: DB_separadas/09_db_porteros_filtered_top40pct.csv
+   📊 Dimensiones: (228, 26)
+   🏷️ Filas con cluster asignado: 228
+   ❌ Filas sin cluster (datos faltantes): 0
+
+📊 CREANDO BOXPLOTS DETALLADOS para 08_db_porteros_filtered_top40pct.csv
+📊 Boxplots detallados guardados: k-means/05_boxplots_detallados_08_db_porteros_filtered_top40pct_k3.png
+📊 Comparación de clusters guardada: k-means/06_comparacion_clusters_08_db_porteros_filtered_top40pct_k3.png
+
+🎨 CREANDO GRÁFICO DE DISPERSIÓN POR CLUSTERS para 08_db_porteros_filtered_top40pct.csv
+🎨 Gráfico de dispersión guardado: k-means/07_dispersion_clusters_08_db_porteros_filtered_top40pct_k3.png
+🎨 Gráfico de dispersión grande guardado: k-means/08_dispersion_grande_08_db_porteros_filtered_top40pct_k3.png
+
+============================================================
+🎯 PROCESANDO: 08_db_centrocampista_filtered_top40pct.csv
+============================================================
+📊 Dimensiones del dataset: (529, 33)
+
+🔧 PREPARANDO DATOS PARA CLUSTERING:
+   📊 Variables seleccionadas para clustering:
+   - Valor de mercado actual (numérico) (Variable objetivo)
+   - overallrating (Rating FIFA)
+   Filas antes de limpiar: 529
+   Filas después de limpiar: 529
+   Filas eliminadas: 0
+
+📈 ESTADÍSTICAS DE LAS VARIABLES:
+   Valor de mercado actual (numérico):
+     Mínimo: $0
+     Máximo: $180,000,000
+     Promedio: $13,497,732
+     Mediana: $6,000,000
+   overallrating:
+     Mínimo: -4
+     Máximo: 3
+     Promedio: 0.0
+     Mediana: 0
+   Datos estandarizados: (529, 2)
+   Rango de K para análisis: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+🔍 MÉTODO DEL CODO para 08_db_centrocampista_filtered_top40pct.csv
+--------------------------------------------------
+   K=1: Inercia = 1058.00
+   K=2: Inercia = 582.44
+   K=3: Inercia = 348.89
+   K=4: Inercia = 234.50
+   K=5: Inercia = 170.49
+   K=6: Inercia = 134.54
+   K=7: Inercia = 110.87
+   K=8: Inercia = 91.65
+   K=9: Inercia = 80.75
+   K=10: Inercia = 71.06
+   🎯 K óptimo detectado por método del codo: 4
+   📊 Distancia perpendicular máxima en K=4: 4.51
+📊 Gráfico del codo guardado: k-means/01_metodo_codo_08_db_centrocampista_filtered_top40pct.png
+
+📊 ANÁLISIS DE SILUETA para 08_db_centrocampista_filtered_top40pct.csv
+--------------------------------------------------
+   K=2: Score de silueta = 0.5431
+   K=3: Score de silueta = 0.4499
+   K=4: Score de silueta = 0.4725
+   K=5: Score de silueta = 0.4250
+   K=6: Score de silueta = 0.4193
+   K=7: Score de silueta = 0.3976
+   K=8: Score de silueta = 0.4255
+   K=9: Score de silueta = 0.4229
+   K=10: Score de silueta = 0.3987
+📊 Gráfico de silueta guardado: k-means/02_analisis_silueta_08_db_centrocampista_filtered_top40pct.png
+
+🎯 DECISIÓN DE K:
+   K sugerido por método del codo: 4 ⭐ (PRIORITARIO)
+   K sugerido por análisis de silueta: 2 (score: 0.5431)
+   K FINAL seleccionado: 4
+   Lógica aplicada: Prioridad absoluta al método del codo
+   ⚠️ Métodos difieren significativamente (diferencia = 2)
+       Manteniendo K del codo = 4 por prioridad establecida
+
+🔄 APLICANDO K-MEANS CON K=4:
+   ✅ Clustering completado exitosamente
+   📊 Clusters generados: [0, 1, 2, 3]
+   📉 Inercia total: 234.50
+   🎯 Score de silueta: 0.4725
+
+📊 EVALUACIÓN DE CALIDAD DE CLUSTERS:
+--------------------------------------------------
+   🎯 Score de Silueta Global: 0.4725
+   🟠 Calidad según Silueta: REGULAR
+   📉 Inercia Total (WCSS): 234.50
+   📊 Inercia Promedio por Cluster: 58.63
+
+   📋 ANÁLISIS POR CLUSTER INDIVIDUAL:
+     Cluster 0:
+       👥 Tamaño: 321
+       🎯 Silueta promedio: 0.4908 ± 0.1750
+       📉 Inercia intra-cluster: 91.61
+       📊 Inercia promedio por punto: 0.2854
+       🟡 Calidad: REGULAR
+     Cluster 1:
+       👥 Tamaño: 85
+       🎯 Silueta promedio: 0.3640 ± 0.1763
+       📉 Inercia intra-cluster: 57.97
+       📊 Inercia promedio por punto: 0.6820
+       🟡 Calidad: REGULAR
+     Cluster 2:
+       👥 Tamaño: 108
+       🎯 Silueta promedio: 0.5120 ± 0.1548
+       📉 Inercia intra-cluster: 44.70
+       📊 Inercia promedio por punto: 0.4139
+       🟢 Calidad: BUENA
+     Cluster 3:
+       👥 Tamaño: 15
+       🎯 Silueta promedio: 0.4104 ± 0.1608
+       📉 Inercia intra-cluster: 40.23
+       📊 Inercia promedio por punto: 2.6823
+       🟡 Calidad: REGULAR
+
+   📈 MÉTRICAS DE COHESIÓN Y SEPARACIÓN:
+     🔄 Distancia mínima entre centroides: 1.5794
+     🔄 Distancia máxima entre centroides: 5.9400
+     📏 Ratio separación (max/min): 3.76
+
+   🏆 RESUMEN DE CALIDAD:
+     🟢 Clusters de calidad BUENA: 1/4
+     🟡 Clusters de calidad REGULAR: 3/4
+     🔴 Clusters de calidad POBRE: 0/4
+     ✅ CALIDAD GENERAL DEL CLUSTERING: BUENA
+
+📊 ANÁLISIS DE CLUSTERS CON DATOS ORIGINALES:
+   Cluster 0: 321 jugadores
+     💰 Valor promedio: $7,853,894
+     🎮 Overall promedio: 0.1
+     💰 Valor mediana: $6,000,000
+     🎮 Overall mediana: 0
+     🟡 Calidad del cluster: REGULAR
+     🎯 Score silueta cluster: 0.4908
+     📉 Inercia intra-cluster: 91.61
+   Cluster 1: 85 jugadores
+     💰 Valor promedio: $33,717,647
+     🎮 Overall promedio: 1.2
+     💰 Valor mediana: $32,000,000
+     🎮 Overall mediana: 1
+     🟡 Calidad del cluster: REGULAR
+     🎯 Score silueta cluster: 0.3640
+     📉 Inercia intra-cluster: 57.97
+   Cluster 2: 108 jugadores
+     💰 Valor promedio: $2,344,444
+     🎮 Overall promedio: -1.5
+     💰 Valor mediana: $1,500,000
+     🎮 Overall mediana: -1
+     🟢 Calidad del cluster: BUENA
+     🎯 Score silueta cluster: 0.5120
+     📉 Inercia intra-cluster: 44.70
+   Cluster 3: 15 jugadores
+     💰 Valor promedio: $100,000,000
+     🎮 Overall promedio: 2.0
+     💰 Valor mediana: $80,000,000
+     🎮 Overall mediana: 2
+     🟡 Calidad del cluster: REGULAR
+     🎯 Score silueta cluster: 0.4104
+     📉 Inercia intra-cluster: 40.23
+
+📊 CREANDO VISUALIZACIONES:
+📊 Gráfico detallado de silueta guardado: k-means/03_silueta_detallada_08_db_centrocampista_filtered_top40pct_k4.png
+   Saltando PCA - usando variables originales para visualización
+
+💾 GUARDANDO DATASET ETIQUETADO:
+   Clusters asignados en dataset: [0, 1, 2, 3]
+   ✅ Dataset etiquetado guardado: DB_separadas/09_db_centrocampista_filtered_top40pct.csv
+   📊 Dimensiones: (529, 34)
+   🏷️ Filas con cluster asignado: 529
+   ❌ Filas sin cluster (datos faltantes): 0
+
+📊 CREANDO BOXPLOTS DETALLADOS para 08_db_centrocampista_filtered_top40pct.csv
+📊 Boxplots detallados guardados: k-means/05_boxplots_detallados_08_db_centrocampista_filtered_top40pct_k4.png
+📊 Comparación de clusters guardada: k-means/06_comparacion_clusters_08_db_centrocampista_filtered_top40pct_k4.png
+
+🎨 CREANDO GRÁFICO DE DISPERSIÓN POR CLUSTERS para 08_db_centrocampista_filtered_top40pct.csv
+🎨 Gráfico de dispersión guardado: k-means/07_dispersion_clusters_08_db_centrocampista_filtered_top40pct_k4.png
+🎨 Gráfico de dispersión grande guardado: k-means/08_dispersion_grande_08_db_centrocampista_filtered_top40pct_k4.png
+
+============================================================
+📋 RESUMEN FINAL DEL CLUSTERING
+============================================================
+📊 Archivos procesados exitosamente: 4
+❌ Archivos con errores: 0
+📁 Total de archivos: 4
+💾 Resumen guardado: k-means/00_resumen_clustering.csv
+
+📈 ESTADÍSTICAS GENERALES:
+   K promedio seleccionado (método del codo): 3.5
+   K del codo promedio original: 3.5
+   K de silueta promedio (referencia): 2.0
+   Score de silueta promedio: 0.4661
+   Inercia promedio: 242.64
+   Rango de K utilizados: 3 - 4
+   Concordancia codo-silueta: 0/4 (0.0%)
+
+🏆 ANÁLISIS DE CALIDAD GENERAL:
+   ✅ BUENA: 3/4 (75.0%)
+   🌟 EXCELENTE: 1/4 (25.0%)
+
+📊 DISTRIBUCIÓN DE CALIDAD DE CLUSTERS:
+   🟢 Clusters BUENOS: 3/14 (21.4%)
+   🟡 Clusters REGULARES: 11/14 (78.6%)
+   🔴 Clusters POBRES: 0/14 (0.0%)
+
+📊 RESUMEN POR ARCHIVO:
+----------------------------------------------------------------------------------------------------
+Archivo                        K   Silueta  Inercia  Calidad    Filas  Clusters
+----------------------------------------------------------------------------------------------------
+08_db_delantero_filtered_top.. 4   0.4597   207.4    ✅BUEN      447    [104, 258, 4, 81.0]
+08_db_defensa_filtered_top40.. 3   0.4333   422.9    ✅BUEN      671    [339, 59, 273]
+08_db_porteros_filtered_top4.. 3   0.4988   105.7    🌟EXCE      228    [87, 111, 30]
+08_db_centrocampista_filtere.. 4   0.4725   234.5    ✅BUEN      529    [321, 85, 108, 15.0]
+
+🎯 PROCESO COMPLETADO:
+   ✅ Todos los gráficos guardados en: k-means/
+   ✅ Todos los datasets etiquetados guardados en: DB_separadas/
+   ✅ Resumen completo en: k-means/00_resumen_clustering.csv
+   📊 Boxplots detallados creados para cada posición
+============================================================
+🕐 Fin del análisis: 2025-06-09 22:20:51
+📝 Log completo guardado en: k-means/kmeans_20250609_222038.txt

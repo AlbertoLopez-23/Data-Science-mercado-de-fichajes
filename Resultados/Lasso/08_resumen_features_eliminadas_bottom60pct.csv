@@ -1,0 +1,84 @@
+Posicion,Feature_Eliminada,Rank_Eliminacion
+Delantero,understat_minutes,1
+Delantero,shortpassing,2
+Delantero,understat_red_cards,3
+Delantero,balance,4
+Delantero,sprintspeed,5
+Delantero,understat_xa,6
+Delantero,stamina,7
+Delantero,dribbling,8
+Delantero,composure,9
+Delantero,understat_goals,10
+Delantero,understat_yellow_cards,11
+Delantero,fk_accuracy,12
+Delantero,Pie bueno,13
+Delantero,Posición específica,14
+Delantero,finishing,15
+Delantero,penalties,16
+Delantero,shotpower,17
+Delantero,longpassing,18
+Delantero,reactions,19
+Delantero,curve,20
+Delantero,defensiveawareness,21
+Delantero,aggression,22
+Delantero,understat_key_passes,23
+Delantero,Posición secundaria,24
+Delantero,positioning,25
+Delantero,interceptions,26
+Defensa,understat_key_passes,1
+Defensa,understat_red_cards,2
+Defensa,understat_shots,3
+Defensa,dribbling,4
+Defensa,fk_accuracy,5
+Defensa,defensiveawareness,6
+Defensa,reactions,7
+Defensa,Pie bueno,8
+Defensa,vision,9
+Defensa,understat_assists,10
+Defensa,sprintspeed,11
+Defensa,longpassing,12
+Defensa,Posición secundaria,13
+Defensa,interceptions,14
+Defensa,slidingtackle,15
+Defensa,Posición específica,16
+Defensa,curve,17
+Defensa,shotpower,18
+Defensa,positioning,19
+Defensa,composure,20
+Defensa,finishing,21
+Defensa,understat_goals,22
+Defensa,shortpassing,23
+Defensa,stamina,24
+Defensa,agility,25
+Defensa,aggression,26
+Centrocampista,shotpower,1
+Centrocampista,defensiveawareness,2
+Centrocampista,aggression,3
+Centrocampista,crossing,4
+Centrocampista,slidingtackle,5
+Centrocampista,understat_xa,6
+Centrocampista,understat_key_passes,7
+Centrocampista,fk_accuracy,8
+Centrocampista,composure,9
+Centrocampista,agility,10
+Centrocampista,finishing,11
+Centrocampista,sprintspeed,12
+Centrocampista,understat_shots,13
+Centrocampista,understat_red_cards,14
+Centrocampista,curve,15
+Centrocampista,understat_xg,16
+Centrocampista,Posición específica,17
+Centrocampista,shortpassing,18
+Centrocampista,Pie bueno,19
+Centrocampista,volleys,20
+Centrocampista,understat_yellow_cards,21
+Centrocampista,stamina,22
+Centrocampista,Posición secundaria,23
+Centrocampista,positioning,24
+Centrocampista,balance,25
+Centrocampista,longshots,26
+08_db_porteros_filtered_top40pct,finishing,1
+08_db_porteros_filtered_top40pct,shotpower,2
+08_db_porteros_filtered_top40pct,reactions,3
+08_db_porteros_filtered_top40pct,crossing,4
+08_db_porteros_filtered_top40pct,positioning,5

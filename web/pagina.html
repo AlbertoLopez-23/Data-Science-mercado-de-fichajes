@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Player Analyzer - Análisis de Jugadores</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <link rel="stylesheet" href="pagina.css?v=6.0">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>⚽ Analizador de Jugadores de Fútbol</h1>
+            <p>Análisis avanzado de jugadores de fútbol con visualizaciones</p>
+        </header>
+
+        <section class="data-status-section">
+            <div class="loading" id="data-loading">
+                <div class="loading-spinner"></div>
+                <p>Cargando datos de jugadores...</p>
+            </div>
+            <div class="success-message" id="upload-success"></div>
+            <div class="error-message" id="upload-error"></div>
+        </section>
+
+        <section class="search-section" id="search-section" style="display: none;">
+            <h2>🔍 Búsqueda Inteligente</h2>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Ej: Daniel Ceballos Fernández, Manchester City, overallrating > 90"
+                />
+                <button id="search-btn" class="search-btn">Buscar</button>
+            </div>
+            
+            <div class="quick-searches">
+                <button class="quick-search-btn" data-query="Daniel Ceballos Fernández">Daniel Ceballos Fernández</button>
+                <button class="quick-search-btn" data-query="Manchester City">Manchester City</button>
+                <button class="quick-search-btn" data-query="Jude Victor William Bellingham">Jude Bellingham</button>
+                <button class="quick-search-btn" data-query="Real Madrid Cf">Real Madrid</button>
+                <button class="quick-search-btn" data-query="Liverpool Fc">Liverpool</button>
+                <button id="table-btn" class="table-btn">📊 Ver Tabla Completa</button>
+            </div>
+            
+            <div class="loading" id="search-loading">
+                <div class="loading-spinner"></div>
+                <p>Procesando búsqueda...</p>
+            </div>
+            
+            <div class="error-message" id="search-error"></div>
+        </section>
+
+        <section class="results-section" id="results-section">
+            <div class="results-header">
+                <div class="results-count" id="results-count"></div>
+                <div class="sort-controls">
+                    <label>Ordenar por:</label>
+                    <select id="sort-select" class="sort-select">
+                        <option value="value_eur">Valor de mercado</option>
+                        <option value="overall">Overall</option>
+                        <option value="age">Edad</option>
+                        <option value="short_name">Nombre</option>
+                    </select>
+                </div>
+            </div>
+            <div class="results-grid" id="results-grid"></div>
+        </section>
+
+        <!-- Sección de tabla -->
+        <section class="table-section" id="table-section" style="display: none;">
+            <div class="table-header">
+                <div class="table-controls">
+                    <button id="back-to-search-btn" class="back-btn">← Volver a Búsqueda</button>
+                    <div class="table-limit-control">
+                        <label for="limit-select">Mostrar:</label>
+                        <select id="limit-select" class="limit-select">
+                            <option value="100">100 jugadores</option>
+                            <option value="250">250 jugadores</option>
+                            <option value="500" selected>500 jugadores</option>
+                            <option value="1000">1000 jugadores</option>
+                            <option value="all">Todos</option>
+                        </select>
+                    </div>
+                    <div class="table-filter-control">
+                        <input type="text" id="table-filter" class="table-filter" placeholder="Filtrar en tabla...">
+                    </div>
+                </div>
+                <div class="table-info" id="table-info"></div>
+            </div>
+            
+            <div class="table-layout">
+                <!-- Panel de filtros - Completamente separado -->
+                <div class="filters-sidebar">
+                    <h3>Filtros</h3>
+                    
+                    <div class="filters-content">
+                        <!-- Filtros de precio -->
+                        <div class="filter-group">
+                            <h4>Valor Actual</h4>
+                            <div class="price-filter">
+                                <label>Mínimo: €<span id="min-current-value">0</span>M</label>
+                                <input type="range" id="min-current-slider" min="0" max="200" step="1" value="0">
+                            </div>
+                            <div class="price-filter">
+                                <label>Máximo: €<span id="max-current-value">200</span>M</label>
+                                <input type="range" id="max-current-slider" min="0" max="200" step="1" value="200">
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <h4>Valor Predicho</h4>
+                            <div class="price-filter">
+                                <label>Mínimo: €<span id="min-predicted-value">0</span>M</label>
+                                <input type="range" id="min-predicted-slider" min="0" max="200" step="1" value="0">
+                            </div>
+                            <div class="price-filter">
+                                <label>Máximo: €<span id="max-predicted-value">200</span>M</label>
+                                <input type="range" id="max-predicted-slider" min="0" max="200" step="1" value="200">
+                            </div>
+                        </div>
+                        
+                        <!-- Filtros de posición -->
+                        <div class="filter-group">
+                            <h4>Posiciones</h4>
+                            <div class="position-filters" id="position-filters">
+                                <!-- Se llenarán dinámicamente -->
+                            </div>
+                            <button id="clear-position-filters" class="clear-filters-btn">Limpiar Posiciones</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contenedor de tabla - Completamente independiente -->
+                <div class="table-wrapper">
+                    <div class="table-container">
+                        <table id="players-table" class="players-table">
+                            <thead>
+                                <tr id="table-headers"></tr>
+                            </thead>
+                            <tbody id="table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal de detalles del jugador -->
+    <div class="player-detail-modal" id="player-modal" role="dialog" aria-labelledby="modal-player-name" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Cerrar modal">×</button>
+            <div class="player-detail-header">
+                <h2 class="player-detail-name" id="modal-player-name"></h2>
+                <div class="player-detail-value" id="modal-player-value"></div>
+            </div>
+            <div class="player-detail-grid">
+                <div class="radar-container">
+                    <h3 class="radar-title">Atributos del Jugador</h3>
+                    <div id="radar-chart"></div>
+                </div>
+                <div class="stats-container">
+                    <h3 class="stats-title">Estadísticas Detalladas</h3>
+                    <div id="detailed-stats"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="pagina.js?v=1.7"></script>
+</body>
+</html>

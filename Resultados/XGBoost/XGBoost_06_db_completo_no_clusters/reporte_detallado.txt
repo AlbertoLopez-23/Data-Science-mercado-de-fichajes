@@ -1,0 +1,57 @@
+REPORTE DETALLADO - MODELO XGBOOST
+================================================================================
+
+Archivo procesado: DB_viejas/06_db_completo.csv
+Fecha de procesamiento: 2025-06-26 08:47:07.932213
+
+CONFIGURACIÓN DEL MODELO:
+Algoritmo: XGBoost Regressor
+Parámetros utilizados:
+  - n_estimators: 200
+  - max_depth: 6
+  - min_child_weight: 1
+  - gamma: 0
+  - subsample: 0.8
+  - colsample_bytree: 0.8
+  - learning_rate: 0.1
+
+INFORMACIÓN DEL DATASET:
+  Total de muestras: 1875
+  Features utilizadas: 50
+  División train/test: 80%/20%
+
+RESULTADOS DEL MODELO:
+       Dataset  N_Muestras  N_Features  Train_R2  Test_R2  Train_MAE    Test_MAE    Train_MSE     Test_MSE    Train_RMSE    Test_RMSE  Train_MAPE  Test_MAPE  Overfitting_Ratio  N_Estimators  Max_Depth  Min_Child_Weight  Gamma  Subsample  Colsample_Bytree  Learning_Rate
+06_db_completo        1875          50  0.998517 0.828934 491083.136 4793055.636 4.541584e+11 6.898053e+13 673912.721826 8.305452e+06   18.611639 113.413377           0.081141           200          6                 1      0        0.8               0.8            0.1
+
+MÉTRICAS DETALLADAS:
+ENTRENAMIENTO:
+  R² Score: 0.9985
+  MAE: 491,083.14
+  MSE: 454,158,356,638.26
+  RMSE: 673,912.72
+  MAPE: 18.61%
+
+TEST:
+  R² Score: 0.8289
+  MAE: 4,793,055.64
+  MSE: 68,980,533,819,824.27
+  RMSE: 8,305,452.05
+  MAPE: 113.41%
+
+ANÁLISIS DE OVERFITTING:
+Ratio de overfitting (Train RMSE / Test RMSE): 0.08
+Estado: ✓ Overfitting controlado
+
+TOP 10 FEATURES MÁS IMPORTANTES:
+--------------------------------------------------
+potential: 0.3093
+overallrating: 0.0742
+reactions: 0.0701
+ballcontrol: 0.0546
+understat_shots: 0.0438
+composure: 0.0429
+sprintspeed: 0.0304
+gk_diving: 0.0241
+understat_goals: 0.0229
+dribbling: 0.0227

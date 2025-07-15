@@ -1,0 +1,108 @@
+2025-06-26 08:47:03 - Iniciando procesamiento de XGBoost (sin clusters)
+2025-06-26 08:47:03 - Archivo: DB_viejas/06_db_completo.csv
+2025-06-26 08:47:03 - Carpeta de salida: XGBoost_06_db_completo_no_clusters
+2025-06-26 08:47:03 - Log file: XGBoost_06_db_completo_no_clusters/logs_completos.txt
+2025-06-26 08:47:03 - 
+================================================================================
+2025-06-26 08:47:03 - PROCESANDO ARCHIVO: 06_db_completo.csv
+2025-06-26 08:47:03 - ================================================================================
+2025-06-26 08:47:03 - Archivo cargado: DB_viejas/06_db_completo.csv
+2025-06-26 08:47:03 - Shape original: (1875, 59)
+2025-06-26 08:47:03 - Columnas excluidas encontradas: ['Lugar de nacimiento (país)', 'Nacionalidad', 'Club actual', 'Proveedor', 'Fin de contrato', 'Valor de mercado actual (numérico)', 'Fecha de fichaje', 'comprado_por']
+2025-06-26 08:47:03 - Features disponibles: 51 de 59 columnas totales
+2025-06-26 08:47:03 - Features seleccionadas: 51
+2025-06-26 08:47:03 -   1. Nombre completo
+2025-06-26 08:47:03 -   2. Posición principal
+2025-06-26 08:47:03 -   3. Posición específica
+2025-06-26 08:47:03 -   4. Posición secundaria
+2025-06-26 08:47:03 -   5. Pie bueno
+2025-06-26 08:47:03 -   6. understat_matches
+2025-06-26 08:47:03 -   7. understat_minutes
+2025-06-26 08:47:03 -   8. understat_goals
+2025-06-26 08:47:03 -   9. understat_xg
+2025-06-26 08:47:03 -   10. understat_assists
+2025-06-26 08:47:03 -   ... y 41 más
+2025-06-26 08:47:03 - 
+Dataset completo:
+2025-06-26 08:47:03 -   Total de muestras: 1875
+2025-06-26 08:47:03 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-26 08:47:03 - Columnas numéricas: 50
+2025-06-26 08:47:03 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-26 08:47:03 - 
+------------------------------------------------------------
+2025-06-26 08:47:03 - ENTRENANDO MODELO XGBOOST
+2025-06-26 08:47:03 - ------------------------------------------------------------
+2025-06-26 08:47:03 - Entrenando modelo XGBoost...
+2025-06-26 08:47:03 - Shape de X: (1875, 50)
+2025-06-26 08:47:03 - Shape de y: (1875,)
+2025-06-26 08:47:03 - Train shape: X=(1500, 50), y=(1500,)
+2025-06-26 08:47:03 - Test shape: X=(375, 50), y=(375,)
+2025-06-26 08:47:03 - Parámetros del modelo: {'n_estimators': 200, 'max_depth': 6, 'min_child_weight': 1, 'gamma': 0, 'subsample': 0.8, 'colsample_bytree': 0.8, 'learning_rate': 0.1, 'random_state': 42, 'n_jobs': -1}
+2025-06-26 08:47:05 - 
+--- MÉTRICAS DE ENTRENAMIENTO ---
+2025-06-26 08:47:05 - R² Train: 0.9985
+2025-06-26 08:47:05 - MAE Train: 491,083.14
+2025-06-26 08:47:05 - RMSE Train: 673,912.72
+2025-06-26 08:47:05 - MAPE Train: 18.61% 
+2025-06-26 08:47:05 - 
+--- MÉTRICAS DE TEST ---
+2025-06-26 08:47:05 - R² Test: 0.8289
+2025-06-26 08:47:05 - MAE Test: 4,793,055.64
+2025-06-26 08:47:05 - RMSE Test: 8,305,452.05
+2025-06-26 08:47:05 - MAPE Test: 113.41% 
+2025-06-26 08:47:05 - 
+--- ANÁLISIS DE OVERFITTING ---
+2025-06-26 08:47:05 - Ratio RMSE (Train/Test): 0.08
+2025-06-26 08:47:05 - ✓ Overfitting controlado
+2025-06-26 08:47:05 - 
+Generando gráficos de análisis...
+2025-06-26 08:47:07 - ✓ Modelo entrenado exitosamente
+2025-06-26 08:47:07 - 
+------------------------------------------------------------
+2025-06-26 08:47:07 - GENERANDO ARCHIVO CON PREDICCIONES
+2025-06-26 08:47:07 - ------------------------------------------------------------
+2025-06-26 08:47:07 - Generando predicciones para todo el dataset...
+2025-06-26 08:47:07 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-26 08:47:07 - Columnas numéricas: 50
+2025-06-26 08:47:07 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-26 08:47:07 - ✓ Predicciones generadas: 1875 valores
+2025-06-26 08:47:07 - CSV con predicciones guardado: XGBoost_06_db_completo_no_clusters/06_db_completo_con_predicciones.csv
+2025-06-26 08:47:07 - Predicciones generadas: 1875/1875 (100.0%)
+2025-06-26 08:47:07 - 
+================================================================================
+2025-06-26 08:47:07 - REPORTE FINAL
+2025-06-26 08:47:07 - ================================================================================
+2025-06-26 08:47:07 - Dataset: 06_db_completo
+2025-06-26 08:47:07 - Total de muestras: 1875
+2025-06-26 08:47:07 - Features utilizadas: 51
+2025-06-26 08:47:07 - 
+RESUMEN DEL MODELO:
+2025-06-26 08:47:07 - Métrica         Train        Test        
+2025-06-26 08:47:07 - ----------------------------------------
+2025-06-26 08:47:07 - R²              0.9985       0.8289      
+2025-06-26 08:47:07 - MAE             491083       4793056     
+2025-06-26 08:47:07 - RMSE            673913       8305452     
+2025-06-26 08:47:07 - MAPE (%)        18.61        113.41      
+2025-06-26 08:47:07 - 
+Resumen CSV guardado en: XGBoost_06_db_completo_no_clusters/resumen_modelo.csv
+2025-06-26 08:47:07 - 
+ESTADÍSTICAS DEL MODELO:
+2025-06-26 08:47:07 - R² Test: 0.8289
+2025-06-26 08:47:07 - RMSE Test: 8,305,452
+2025-06-26 08:47:07 - MAE Test: 4,793,056
+2025-06-26 08:47:07 - Ratio de overfitting: 0.08
+2025-06-26 08:47:07 - ✓ Overfitting controlado
+2025-06-26 08:47:07 - Reporte detallado guardado en: XGBoost_06_db_completo_no_clusters/reporte_detallado.txt
+2025-06-26 08:47:07 - 
+ARCHIVOS GENERADOS:
+2025-06-26 08:47:07 - - Carpeta principal: XGBoost_06_db_completo_no_clusters/
+2025-06-26 08:47:07 - - Logs completos: XGBoost_06_db_completo_no_clusters/logs_completos.txt
+2025-06-26 08:47:07 - - Reporte detallado: XGBoost_06_db_completo_no_clusters/reporte_detallado.txt
+2025-06-26 08:47:07 - - Resumen CSV: XGBoost_06_db_completo_no_clusters/resumen_modelo.csv
+2025-06-26 08:47:07 - - Datos con predicciones: XGBoost_06_db_completo_no_clusters/06_db_completo_con_predicciones.csv
+2025-06-26 08:47:07 - - Gráficas: XGBoost_06_db_completo_no_clusters/graficas/
+2025-06-26 08:47:07 -   * 3 gráficas generadas
+2025-06-26 08:47:07 - 
+================================================================================
+2025-06-26 08:47:07 - PROCESAMIENTO COMPLETADO EXITOSAMENTE
+2025-06-26 08:47:07 - ================================================================================

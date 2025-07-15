@@ -1,0 +1,77 @@
+2025-06-26 08:34:45 - Archivo cargado: DB_viejas/06_db_completo.csv
+2025-06-26 08:34:45 - Shape original: (1875, 59)
+2025-06-26 08:34:45 - Columnas excluidas encontradas: ['Nombre completo', 'Lugar de nacimiento (país)', 'Nacionalidad', 'Club actual', 'Proveedor', 'Fin de contrato', 'Valor de mercado actual (numérico)', 'Fecha de fichaje', 'comprado_por']
+2025-06-26 08:34:45 - Features disponibles: 50 de 59 columnas totales
+2025-06-26 08:34:45 - Features seleccionadas: 50
+2025-06-26 08:34:45 -   1. Posición principal
+2025-06-26 08:34:45 -   2. Posición específica
+2025-06-26 08:34:45 -   3. Posición secundaria
+2025-06-26 08:34:45 -   4. Pie bueno
+2025-06-26 08:34:45 -   5. understat_matches
+2025-06-26 08:34:45 -   6. understat_minutes
+2025-06-26 08:34:45 -   7. understat_goals
+2025-06-26 08:34:45 -   8. understat_xg
+2025-06-26 08:34:45 -   9. understat_assists
+2025-06-26 08:34:45 -   10. understat_xa
+2025-06-26 08:34:45 -   ... y 40 más
+2025-06-26 08:34:45 - 
+INFORMACIÓN GENERAL DEL DATASET:
+2025-06-26 08:34:45 - Shape total: (1875, 59)
+2025-06-26 08:34:45 - Features disponibles: 50
+2025-06-26 08:34:45 - Variable objetivo: Valor de mercado actual (numérico)
+2025-06-26 08:34:45 - Preprocesando features...
+2025-06-26 08:34:45 - Columnas categóricas encontradas (serán eliminadas): 0
+2025-06-26 08:34:45 - Columnas numéricas: 50
+2025-06-26 08:34:45 - Estadísticas de la variable objetivo:
+2025-06-26 08:34:45 -   Media: 12,068,040
+2025-06-26 08:34:45 -   Desv. estándar: 18,052,126
+2025-06-26 08:34:45 -   Rango: [0, 200,000,000]
+2025-06-26 08:34:45 -   Coef. variación: 1.496
+2025-06-26 08:34:45 -   ✓ Variabilidad normal
+2025-06-26 08:34:45 - Iniciando entrenamiento del modelo SVR...
+2025-06-26 08:34:45 - Muestras totales: 1875
+2025-06-26 08:34:45 - Features: 50
+2025-06-26 08:34:45 - Train samples: 1500, Test samples: 375
+2025-06-26 08:34:45 - Ejecutando optimización de hiperparámetros...
+2025-06-26 08:36:03 - Mejores parámetros encontrados: {'C': 1000.0, 'kernel': 'rbf', 'gamma': 0.0004140734058934973, 'epsilon': 0.001}
+2025-06-26 08:36:06 - Calculando importancia aproximada de features...
+2025-06-26 08:36:06 - 
+✓ MODELO ENTRENADO EXITOSAMENTE
+2025-06-26 08:36:06 - Mejores parámetros: {'C': 1000.0, 'kernel': 'rbf', 'gamma': 0.0004140734058934973, 'epsilon': 0.001}
+2025-06-26 08:36:06 - R² Train: 0.7820
+2025-06-26 08:36:06 - R² Test: 0.7459
+2025-06-26 08:36:06 - MAE Train: 4,205,407.97
+2025-06-26 08:36:06 - MAE Test: 5,505,399.47
+2025-06-26 08:36:06 - MSE Train: 66,757,567,082,418.21
+2025-06-26 08:36:06 - MSE Test: 102,460,616,317,960.80
+2025-06-26 08:36:06 - RMSE Train: 8,170,530.40
+2025-06-26 08:36:06 - RMSE Test: 10,122,283.16
+2025-06-26 08:36:06 - MAPE Train: 81.26%
+2025-06-26 08:36:06 - MAPE Test: 122.76%
+2025-06-26 08:36:06 - CV Score: 0.7094
+2025-06-26 08:36:06 - Ratio Overfitting: 1.05
+2025-06-26 08:36:06 - ✓ Nivel de sobreajuste aceptable
+2025-06-26 08:36:06 - 
+============================================================
+2025-06-26 08:36:06 - GENERANDO CSV CON PREDICCIONES
+2025-06-26 08:36:06 - ============================================================
+2025-06-26 08:36:06 - Generando predicciones para todo el dataset...
+2025-06-26 08:36:06 - Columnas categóricas encontradas (serán eliminadas): 0
+2025-06-26 08:36:06 - Columnas numéricas: 50
+2025-06-26 08:36:06 - ✓ Predicciones generadas: 1875 valores
+2025-06-26 08:36:06 - CSV con predicciones guardado: resultados_svr_06_db_completo/06_db_completo_con_predicciones.csv
+2025-06-26 08:36:06 - Predicciones generadas: 1875/1875 (100.0%)
+2025-06-26 08:36:06 - 
+============================================================
+2025-06-26 08:36:06 - GENERANDO GRÁFICOS ADICIONALES
+2025-06-26 08:36:06 - ============================================================
+2025-06-26 08:36:07 - Gráficos adicionales guardados: resultados_svr_06_db_completo/graficas/analisis_adicional.png
+2025-06-26 08:36:08 - Resumen de rendimiento guardado: resultados_svr_06_db_completo/graficas/resumen_rendimiento.png
+2025-06-26 08:36:08 - Reporte detallado guardado: resultados_svr_06_db_completo/reporte_detallado.txt
+2025-06-26 08:36:08 - Resumen de métricas CSV guardado: resultados_svr_06_db_completo/resumen_metricas.csv
+2025-06-26 08:36:08 - 
+================================================================================
+2025-06-26 08:36:08 - PROCESAMIENTO COMPLETADO EXITOSAMENTE
+2025-06-26 08:36:08 - Resultados guardados en: resultados_svr_06_db_completo
+2025-06-26 08:36:08 - Logs completos guardados en: resultados_svr_06_db_completo/logs_completos.txt
+2025-06-26 08:36:08 - ================================================================================

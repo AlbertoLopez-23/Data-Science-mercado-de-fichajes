@@ -1,0 +1,104 @@
+REPORTE DETALLADO - MODELOS XGBOOST POR CLUSTER
+================================================================================
+
+Archivo procesado: DB_separadas/09_db_centrocampista_filtered_top40pct.csv
+Fecha de procesamiento: 2025-06-21 10:30:43.326671
+
+CONFIGURACIÓN DEL MODELO:
+Algoritmo: XGBoost Regressor
+Parámetros utilizados:
+  - n_estimators: 50
+  - max_depth: 4
+  - min_child_weight: 5
+  - gamma: 0.2
+  - subsample: 0.8
+  - colsample_bytree: 0.8
+  - learning_rate: 0.1
+
+DISTRIBUCIÓN DE CLUSTERS:
+  Cluster 0: 321 muestras
+  Cluster 1: 85 muestras
+  Cluster 2: 108 muestras
+  Cluster 3: 15 muestras
+
+RESUMEN DE RESULTADOS:
+ Cluster  N_Muestras  N_Features  Train_R2   Test_R2    Train_MAE     Test_MAE    Train_MSE     Test_MSE   Train_RMSE    Test_RMSE  Train_MAPE  Test_MAPE  Overfitting_Ratio  N_Estimators  Max_Depth  Min_Child_Weight  Gamma  Subsample  Colsample_Bytree  Learning_Rate
+       1          85          24  0.937492  0.756361 2.590029e+06 6.197788e+06 1.088522e+13 5.322154e+13 3.299275e+06 7.295309e+06   10.602885  18.443761           1.239476            50          4                 5    0.2        0.8               0.8            0.1
+       2         108          24  0.940961  0.732808 4.529517e+05 9.828848e+05 3.205565e+11 1.427903e+12 5.661771e+05 1.194949e+06   50.345194  96.544950           1.284049            50          4                 5    0.2        0.8               0.8            0.1
+       0         321          24  0.859137  0.351619 1.744425e+06 4.038962e+06 5.100456e+12 2.801155e+13 2.258419e+06 5.292594e+06   40.225979  81.451766           2.443376            50          4                 5    0.2        0.8               0.8            0.1
+       3          15          24  0.584484 -0.017906 1.058874e+07 3.782086e+07 2.135957e+14 2.054897e+15 1.461491e+07 4.533098e+07   10.570496  29.169133          32.642056            50          4                 5    0.2        0.8               0.8            0.1
+
+ESTADÍSTICAS GENERALES:
+Mejor R² Test: 0.7564 (Cluster 1)
+Peor R² Test: -0.0179 (Cluster 3)
+R² Test promedio: 0.4557
+Desviación estándar R² Test: 0.3662
+RMSE Test promedio: 14,778,457.31
+MAE Test promedio: 12,260,122.69
+Clusters procesados exitosamente: 4
+Total de muestras procesadas: 529
+Total de features utilizadas: 25
+
+ANÁLISIS DE OVERFITTING:
+Ratio de overfitting promedio: 9.40
+Clusters con alto overfitting (>2.0): 2
+Clusters problemáticos: 0, 3
+
+DETALLES POR CLUSTER:
+--------------------------------------------------
+CLUSTER 1.0:
+  Muestras: 85.0
+  Features: 24.0
+  R² Train: 0.9375
+  R² Test: 0.7564
+  RMSE Train: 3,299,275.14
+  RMSE Test: 7,295,309.32
+  MAE Train: 2,590,029.00
+  MAE Test: 6,197,787.56
+  MAPE Train: 10.60%
+  MAPE Test: 18.44%
+  Ratio Overfitting: 1.24
+  Estado: ✓ Overfitting controlado
+
+CLUSTER 2.0:
+  Muestras: 108.0
+  Features: 24.0
+  R² Train: 0.9410
+  R² Test: 0.7328
+  RMSE Train: 566,177.08
+  RMSE Test: 1,194,949.14
+  MAE Train: 452,951.66
+  MAE Test: 982,884.77
+  MAPE Train: 50.35%
+  MAPE Test: 96.54%
+  Ratio Overfitting: 1.28
+  Estado: ✓ Overfitting controlado
+
+CLUSTER 0.0:
+  Muestras: 321.0
+  Features: 24.0
+  R² Train: 0.8591
+  R² Test: 0.3516
+  RMSE Train: 2,258,419.00
+  RMSE Test: 5,292,593.94
+  MAE Train: 1,744,424.55
+  MAE Test: 4,038,962.45
+  MAPE Train: 40.23%
+  MAPE Test: 81.45%
+  Ratio Overfitting: 2.44
+  Estado: ⚠️ Alto overfitting
+
+CLUSTER 3.0:
+  Muestras: 15.0
+  Features: 24.0
+  R² Train: 0.5845
+  R² Test: -0.0179
+  RMSE Train: 14,614,914.69
+  RMSE Test: 45,330,976.83
+  MAE Train: 10,588,740.36
+  MAE Test: 37,820,856.00
+  MAPE Train: 10.57%
+  MAPE Test: 29.17%
+  Ratio Overfitting: 32.64
+  Estado: ⚠️ Alto overfitting
+

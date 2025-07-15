@@ -1,0 +1,240 @@
+2025-06-21 10:30:28 - Iniciando procesamiento de XGBoost
+2025-06-21 10:30:28 - Archivo: DB_separadas/09_db_centrocampista_filtered_top40pct.csv
+2025-06-21 10:30:28 - Carpeta de salida: XGBoost_09_db_centrocampista_filtered_top40pct
+2025-06-21 10:30:28 - Log file: XGBoost_09_db_centrocampista_filtered_top40pct/logs_completos.txt
+2025-06-21 10:30:28 - 
+================================================================================
+2025-06-21 10:30:28 - PROCESANDO ARCHIVO: 09_db_centrocampista_filtered_top40pct.csv
+2025-06-21 10:30:28 - ================================================================================
+2025-06-21 10:30:28 - Archivo cargado: DB_separadas/09_db_centrocampista_filtered_top40pct.csv
+2025-06-21 10:30:28 - Shape original: (529, 34)
+2025-06-21 10:30:28 - Columnas excluidas encontradas: ['Lugar de nacimiento (país)', 'Nacionalidad', 'Club actual', 'Proveedor', 'Fin de contrato', 'Fecha de fichaje', 'comprado_por', 'Valor de mercado actual (numérico)', 'Cluster']
+2025-06-21 10:30:28 - Features disponibles: 25 de 34 columnas totales
+2025-06-21 10:30:28 - Features seleccionadas: 25
+2025-06-21 10:30:28 -   1. Nombre completo
+2025-06-21 10:30:28 -   2. Posición principal
+2025-06-21 10:30:28 -   3. gk_diving
+2025-06-21 10:30:28 -   4. gk_handling
+2025-06-21 10:30:28 -   5. gk_kicking
+2025-06-21 10:30:28 -   6. gk_positioning
+2025-06-21 10:30:28 -   7. gk_reflexes
+2025-06-21 10:30:28 -   8. overallrating
+2025-06-21 10:30:28 -   9. potential
+2025-06-21 10:30:28 -   10. jumping
+2025-06-21 10:30:28 -   ... y 15 más
+2025-06-21 10:30:28 - 
+Distribución de clusters:
+2025-06-21 10:30:28 -   Cluster 0: 321 muestras
+2025-06-21 10:30:28 -   Cluster 1: 85 muestras
+2025-06-21 10:30:28 -   Cluster 2: 108 muestras
+2025-06-21 10:30:28 -   Cluster 3: 15 muestras
+2025-06-21 10:30:28 - 
+------------------------------------------------------------
+2025-06-21 10:30:28 - PROCESANDO CLUSTER 0
+2025-06-21 10:30:28 - ------------------------------------------------------------
+2025-06-21 10:30:28 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-21 10:30:28 - Columnas numéricas: 24
+2025-06-21 10:30:28 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-21 10:30:28 - 
+Entrenando modelo XGBoost para Cluster 0...
+2025-06-21 10:30:28 - Muestras: 321, Features: 24
+2025-06-21 10:30:28 - Estadísticas del cluster:
+2025-06-21 10:30:28 -   Media: 7,853,894
+2025-06-21 10:30:28 -   Desviación estándar: 6,105,432
+2025-06-21 10:30:28 -   Coeficiente de variación: 0.777
+2025-06-21 10:30:28 - Variables X SIN escalar - Shape: (288, 24)
+2025-06-21 10:30:28 - Variable y escalada - Rango train: [-1.278, 3.708]
+2025-06-21 10:30:28 - Configuración:
+2025-06-21 10:30:28 -   División train/test: 288/33 (90%/10%)
+2025-06-21 10:30:28 - Entrenando modelo XGBoost...
+2025-06-21 10:30:29 - Generando predicciones...
+2025-06-21 10:30:29 - Métricas finales:
+2025-06-21 10:30:29 -   R² Train: 0.8591
+2025-06-21 10:30:29 -   R² Test: 0.3516
+2025-06-21 10:30:29 -   MAE Train: 1,744,424.55
+2025-06-21 10:30:29 -   MAE Test: 4,038,962.45
+2025-06-21 10:30:29 -   MSE Train: 5,100,456,365,212.13
+2025-06-21 10:30:29 -   MSE Test: 28,011,550,626,582.47
+2025-06-21 10:30:29 -   RMSE Train: 2,258,419.00
+2025-06-21 10:30:29 -   RMSE Test: 5,292,593.94
+2025-06-21 10:30:29 -   MAPE Train: 40.23%
+2025-06-21 10:30:29 -   MAPE Test: 81.45%
+2025-06-21 10:30:29 -   Ratio overfitting: 2.44
+2025-06-21 10:30:29 - Generando gráficas...
+2025-06-21 10:30:31 - ✓ Modelo entrenado exitosamente para Cluster 0
+2025-06-21 10:30:31 - ✓ Cluster 0 procesado exitosamente
+2025-06-21 10:30:31 - 
+------------------------------------------------------------
+2025-06-21 10:30:31 - PROCESANDO CLUSTER 1
+2025-06-21 10:30:31 - ------------------------------------------------------------
+2025-06-21 10:30:31 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-21 10:30:31 - Columnas numéricas: 24
+2025-06-21 10:30:31 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-21 10:30:31 - 
+Entrenando modelo XGBoost para Cluster 1...
+2025-06-21 10:30:31 - Muestras: 85, Features: 24
+2025-06-21 10:30:31 - Estadísticas del cluster:
+2025-06-21 10:30:31 -   Media: 33,717,647
+2025-06-21 10:30:31 -   Desviación estándar: 13,459,473
+2025-06-21 10:30:31 -   Coeficiente de variación: 0.399
+2025-06-21 10:30:31 - Variables X SIN escalar - Shape: (76, 24)
+2025-06-21 10:30:31 - Variable y escalada - Rango train: [-2.165, 2.003]
+2025-06-21 10:30:31 - Configuración:
+2025-06-21 10:30:31 -   División train/test: 76/9 (90%/10%)
+2025-06-21 10:30:31 - Entrenando modelo XGBoost...
+2025-06-21 10:30:32 - Generando predicciones...
+2025-06-21 10:30:32 - Métricas finales:
+2025-06-21 10:30:32 -   R² Train: 0.9375
+2025-06-21 10:30:32 -   R² Test: 0.7564
+2025-06-21 10:30:32 -   MAE Train: 2,590,029.00
+2025-06-21 10:30:32 -   MAE Test: 6,197,787.56
+2025-06-21 10:30:32 -   MSE Train: 10,885,216,419,395.76
+2025-06-21 10:30:32 -   MSE Test: 53,221,538,076,194.66
+2025-06-21 10:30:32 -   RMSE Train: 3,299,275.14
+2025-06-21 10:30:32 -   RMSE Test: 7,295,309.32
+2025-06-21 10:30:32 -   MAPE Train: 10.60%
+2025-06-21 10:30:32 -   MAPE Test: 18.44%
+2025-06-21 10:30:32 -   Ratio overfitting: 1.24
+2025-06-21 10:30:32 - Generando gráficas...
+2025-06-21 10:30:34 - ✓ Modelo entrenado exitosamente para Cluster 1
+2025-06-21 10:30:34 - ✓ Cluster 1 procesado exitosamente
+2025-06-21 10:30:34 - 
+------------------------------------------------------------
+2025-06-21 10:30:34 - PROCESANDO CLUSTER 2
+2025-06-21 10:30:34 - ------------------------------------------------------------
+2025-06-21 10:30:34 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-21 10:30:34 - Columnas numéricas: 24
+2025-06-21 10:30:34 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-21 10:30:34 - 
+Entrenando modelo XGBoost para Cluster 2...
+2025-06-21 10:30:34 - Muestras: 108, Features: 24
+2025-06-21 10:30:34 - Estadísticas del cluster:
+2025-06-21 10:30:34 -   Media: 2,344,444
+2025-06-21 10:30:34 -   Desviación estándar: 2,340,122
+2025-06-21 10:30:34 -   Coeficiente de variación: 0.998
+2025-06-21 10:30:34 - Variables X SIN escalar - Shape: (97, 24)
+2025-06-21 10:30:34 - Variable y escalada - Rango train: [-1.016, 3.276]
+2025-06-21 10:30:34 - Configuración:
+2025-06-21 10:30:34 -   División train/test: 97/11 (90%/10%)
+2025-06-21 10:30:34 - Entrenando modelo XGBoost...
+2025-06-21 10:30:37 - Generando predicciones...
+2025-06-21 10:30:37 - Métricas finales:
+2025-06-21 10:30:37 -   R² Train: 0.9410
+2025-06-21 10:30:37 -   R² Test: 0.7328
+2025-06-21 10:30:37 -   MAE Train: 452,951.66
+2025-06-21 10:30:37 -   MAE Test: 982,884.77
+2025-06-21 10:30:37 -   MSE Train: 320,556,483,340.83
+2025-06-21 10:30:37 -   MSE Test: 1,427,903,449,369.68
+2025-06-21 10:30:37 -   RMSE Train: 566,177.08
+2025-06-21 10:30:37 -   RMSE Test: 1,194,949.14
+2025-06-21 10:30:37 -   MAPE Train: 50.35%
+2025-06-21 10:30:37 -   MAPE Test: 96.54%
+2025-06-21 10:30:37 -   Ratio overfitting: 1.28
+2025-06-21 10:30:37 - Generando gráficas...
+2025-06-21 10:30:39 - ✓ Modelo entrenado exitosamente para Cluster 2
+2025-06-21 10:30:39 - ✓ Cluster 2 procesado exitosamente
+2025-06-21 10:30:39 - 
+------------------------------------------------------------
+2025-06-21 10:30:39 - PROCESANDO CLUSTER 3
+2025-06-21 10:30:39 - ------------------------------------------------------------
+2025-06-21 10:30:39 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-21 10:30:39 - Columnas numéricas: 24
+2025-06-21 10:30:39 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-21 10:30:39 - 
+Entrenando modelo XGBoost para Cluster 3...
+2025-06-21 10:30:39 - Muestras: 15, Features: 24
+2025-06-21 10:30:39 - Estadísticas del cluster:
+2025-06-21 10:30:39 -   Media: 100,000,000
+2025-06-21 10:30:39 -   Desviación estándar: 33,166,248
+2025-06-21 10:30:39 -   Coeficiente de variación: 0.332
+2025-06-21 10:30:39 - Variables X SIN escalar - Shape: (11, 24)
+2025-06-21 10:30:39 - Variable y escalada - Rango train: [-1.043, 2.045]
+2025-06-21 10:30:39 - Configuración:
+2025-06-21 10:30:39 -   División train/test: 11/4 (75%/25%)
+2025-06-21 10:30:39 - Entrenando modelo XGBoost...
+2025-06-21 10:30:39 - Generando predicciones...
+2025-06-21 10:30:39 - Métricas finales:
+2025-06-21 10:30:39 -   R² Train: 0.5845
+2025-06-21 10:30:39 -   R² Test: -0.0179
+2025-06-21 10:30:39 -   MAE Train: 10,588,740.36
+2025-06-21 10:30:39 -   MAE Test: 37,820,856.00
+2025-06-21 10:30:39 -   MSE Train: 213,595,731,534,638.53
+2025-06-21 10:30:39 -   MSE Test: 2,054,897,460,760,160.00
+2025-06-21 10:30:39 -   RMSE Train: 14,614,914.69
+2025-06-21 10:30:39 -   RMSE Test: 45,330,976.83
+2025-06-21 10:30:39 -   MAPE Train: 10.57%
+2025-06-21 10:30:39 -   MAPE Test: 29.17%
+2025-06-21 10:30:39 -   Ratio overfitting: 32.64
+2025-06-21 10:30:39 - Generando gráficas...
+2025-06-21 10:30:42 - ✓ Modelo entrenado exitosamente para Cluster 3
+2025-06-21 10:30:42 - ✓ Cluster 3 procesado exitosamente
+2025-06-21 10:30:42 - 
+------------------------------------------------------------
+2025-06-21 10:30:42 - GENERANDO ARCHIVO CON PREDICCIONES
+2025-06-21 10:30:42 - ------------------------------------------------------------
+2025-06-21 10:30:42 - Generando predicciones para todo el dataset...
+2025-06-21 10:30:42 - Generando predicciones para Cluster 0...
+2025-06-21 10:30:42 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-21 10:30:42 - Columnas numéricas: 24
+2025-06-21 10:30:42 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-21 10:30:42 - ✓ Predicciones generadas para Cluster 0: 321 valores
+2025-06-21 10:30:42 - Generando predicciones para Cluster 1...
+2025-06-21 10:30:42 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-21 10:30:42 - Columnas numéricas: 24
+2025-06-21 10:30:42 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-21 10:30:42 - ✓ Predicciones generadas para Cluster 1: 85 valores
+2025-06-21 10:30:42 - Generando predicciones para Cluster 2...
+2025-06-21 10:30:42 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-21 10:30:42 - Columnas numéricas: 24
+2025-06-21 10:30:42 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-21 10:30:42 - ✓ Predicciones generadas para Cluster 2: 108 valores
+2025-06-21 10:30:42 - Generando predicciones para Cluster 3...
+2025-06-21 10:30:42 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-21 10:30:42 - Columnas numéricas: 24
+2025-06-21 10:30:42 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-21 10:30:42 - ✓ Predicciones generadas para Cluster 3: 15 valores
+2025-06-21 10:30:42 - CSV con predicciones guardado: XGBoost_09_db_centrocampista_filtered_top40pct/09_db_centrocampista_filtered_top40pct_con_predicciones.csv
+2025-06-21 10:30:42 - Predicciones generadas: 529/529 (100.0%)
+2025-06-21 10:30:42 - 
+================================================================================
+2025-06-21 10:30:42 - REPORTE FINAL
+2025-06-21 10:30:42 - ================================================================================
+2025-06-21 10:30:42 - Dataset: 09_db_centrocampista_filtered_top40pct
+2025-06-21 10:30:42 - Total de muestras: 529
+2025-06-21 10:30:42 - Features utilizadas: 25
+2025-06-21 10:30:42 - Clusters procesados: 4
+2025-06-21 10:30:42 - 
+RESUMEN POR CLUSTER:
+2025-06-21 10:30:42 - Cluster  Muestras   R² Test    RMSE Test    MAE Test    
+2025-06-21 10:30:42 - ------------------------------------------------------------
+2025-06-21 10:30:42 - 0        321        0.3516     5292594      4038962     
+2025-06-21 10:30:42 - 1        85         0.7564     7295309      6197788     
+2025-06-21 10:30:42 - 2        108        0.7328     1194949      982885      
+2025-06-21 10:30:42 - 3        15         -0.0179    45330977     37820856    
+2025-06-21 10:30:42 - 
+Resumen CSV guardado en: XGBoost_09_db_centrocampista_filtered_top40pct/resumen_modelos_por_cluster.csv
+2025-06-21 10:30:42 - 
+ESTADÍSTICAS GENERALES:
+2025-06-21 10:30:42 - R² Test promedio: 0.4557 ± 0.3171
+2025-06-21 10:30:42 - RMSE Test promedio: 14,778,457 ± 17,776,018
+2025-06-21 10:30:42 - MAE Test promedio: 12,260,123 ± 14,873,353
+2025-06-21 10:30:42 - Mejor cluster (R²): 1 (R² = 0.7564)
+2025-06-21 10:30:42 - Peor cluster (R²): 3 (R² = -0.0179)
+2025-06-21 10:30:42 - 
+Generando gráfico de comparación entre clusters...
+2025-06-21 10:30:43 - Gráfico comparativo guardado en: XGBoost_09_db_centrocampista_filtered_top40pct/graficas/comparacion_clusters.png
+2025-06-21 10:30:43 - ✓ Gráfico de comparación generado exitosamente
+2025-06-21 10:30:43 - Reporte detallado guardado en: XGBoost_09_db_centrocampista_filtered_top40pct/reporte_detallado.txt
+2025-06-21 10:30:43 - 
+ARCHIVOS GENERADOS:
+2025-06-21 10:30:43 - - Carpeta principal: XGBoost_09_db_centrocampista_filtered_top40pct/
+2025-06-21 10:30:43 - - Logs completos: XGBoost_09_db_centrocampista_filtered_top40pct/logs_completos.txt
+2025-06-21 10:30:43 - - Reporte detallado: XGBoost_09_db_centrocampista_filtered_top40pct/reporte_detallado.txt
+2025-06-21 10:30:43 - - Resumen CSV: XGBoost_09_db_centrocampista_filtered_top40pct/resumen_modelos_por_cluster.csv
+2025-06-21 10:30:43 - - Datos con predicciones: XGBoost_09_db_centrocampista_filtered_top40pct/09_db_centrocampista_filtered_top40pct_con_predicciones.csv
+2025-06-21 10:30:43 - - Gráficas: XGBoost_09_db_centrocampista_filtered_top40pct/graficas/
+2025-06-21 10:30:43 -   * 14 gráficas generadas
+2025-06-21 10:30:43 - 
+================================================================================
+2025-06-21 10:30:43 - PROCESAMIENTO COMPLETADO EXITOSAMENTE
+2025-06-21 10:30:43 - ================================================================================

@@ -1,0 +1,24 @@
+REPORTE DETALLADO - MODELOS SVR POR CLUSTER
+================================================================================
+
+Archivo procesado: DB_separadas/09_db_centrocampista_filtered_top40pct.csv
+Fecha de procesamiento: 2025-06-21 00:50:23.945284
+
+DISTRIBUCIÓN DE CLUSTERS:
+  Cluster 0: 321 muestras
+  Cluster 1: 85 muestras
+  Cluster 2: 108 muestras
+  Cluster 3: 15 muestras
+
+RESUMEN DE RESULTADOS:
+ Cluster  N_Muestras  N_Features  Train_R2   Test_R2    Train_MAE     Test_MAE    Train_MSE     Test_MSE   Train_RMSE    Test_RMSE  Train_MAPE  Test_MAPE  CV_Score  Overfitting_Ratio Best_Kernel     Best_C  Best_Gamma  Best_Epsilon
+       3          15          24  0.604554  0.438763 8.574985e+06 2.550912e+07 2.032788e+14 1.132998e+15 1.425759e+07 3.366004e+07    9.143432  17.729574 -0.381915           1.377862         rbf   1.774733      0.0232      0.010000
+       0         321          24  0.453168  0.354474 3.498159e+06 3.947002e+06 1.968440e+13 2.615626e+13 4.436710e+06 5.114319e+06   85.714191  76.164719  0.363596           1.278424      linear   0.100000      0.0001      0.661345
+       2         108          24  0.255100  0.250197 1.356007e+06 1.339464e+06 4.196724e+12 3.597496e+12 2.048591e+06 1.896707e+06  151.054626 108.215590  0.020836           1.019595         rbf 100.000000      0.0001      0.365496
+       1          85          24 -0.001186 -0.091567 1.058047e+07 1.147639e+07 1.689928e+14 2.160062e+14 1.299972e+07 1.469715e+07   47.396786  33.691543 -0.026780           0.012949         rbf   0.100000      0.0001      0.556802
+
+ESTADÍSTICAS GENERALES:
+Mejor R² Test: 0.4388 (Cluster 3)
+R² Test promedio: 0.2380
+Desviación estándar R² Test: 0.2328
+Clusters procesados exitosamente: 4

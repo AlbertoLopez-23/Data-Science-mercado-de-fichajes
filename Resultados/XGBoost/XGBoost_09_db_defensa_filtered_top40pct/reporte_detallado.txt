@@ -1,0 +1,88 @@
+REPORTE DETALLADO - MODELOS XGBOOST POR CLUSTER
+================================================================================
+
+Archivo procesado: DB_separadas/09_db_defensa_filtered_top40pct.csv
+Fecha de procesamiento: 2025-06-21 10:33:34.735422
+
+CONFIGURACIÓN DEL MODELO:
+Algoritmo: XGBoost Regressor
+Parámetros utilizados:
+  - n_estimators: 50
+  - max_depth: 4
+  - min_child_weight: 5
+  - gamma: 0.2
+  - subsample: 0.8
+  - colsample_bytree: 0.8
+  - learning_rate: 0.1
+
+DISTRIBUCIÓN DE CLUSTERS:
+  Cluster 0: 339 muestras
+  Cluster 1: 59 muestras
+  Cluster 2: 273 muestras
+
+RESUMEN DE RESULTADOS:
+ Cluster  N_Muestras  N_Features  Train_R2  Test_R2    Train_MAE     Test_MAE    Train_MSE     Test_MSE   Train_RMSE    Test_RMSE  Train_MAPE  Test_MAPE  Overfitting_Ratio  N_Estimators  Max_Depth  Min_Child_Weight  Gamma  Subsample  Colsample_Bytree  Learning_Rate
+       1          59          24  0.936471 0.565086 2.416014e+06 8.645929e+06 1.243104e+13 9.574155e+13 3.525768e+06 9.784761e+06    5.525757  17.528090           1.657219            50          4                 5    0.2        0.8               0.8            0.1
+       2         273          24  0.873973 0.478844 2.283783e+06 4.704548e+06 7.985877e+12 3.663429e+13 2.825929e+06 6.052626e+06   35.082312  62.230373           1.825171            50          4                 5    0.2        0.8               0.8            0.1
+       0         339          24  0.835831 0.146671 8.622373e+05 1.558849e+06 1.555810e+12 5.018108e+12 1.247321e+06 2.240113e+06   49.629956  73.999441           5.698690            50          4                 5    0.2        0.8               0.8            0.1
+
+ESTADÍSTICAS GENERALES:
+Mejor R² Test: 0.5651 (Cluster 1)
+Peor R² Test: 0.1467 (Cluster 0)
+R² Test promedio: 0.3969
+Desviación estándar R² Test: 0.2209
+RMSE Test promedio: 6,025,833.61
+MAE Test promedio: 4,969,775.00
+Clusters procesados exitosamente: 3
+Total de muestras procesadas: 671
+Total de features utilizadas: 25
+
+ANÁLISIS DE OVERFITTING:
+Ratio de overfitting promedio: 3.06
+Clusters con alto overfitting (>2.0): 1
+Clusters problemáticos: 0
+
+DETALLES POR CLUSTER:
+--------------------------------------------------
+CLUSTER 1.0:
+  Muestras: 59.0
+  Features: 24.0
+  R² Train: 0.9365
+  R² Test: 0.5651
+  RMSE Train: 3,525,768.03
+  RMSE Test: 9,784,761.10
+  MAE Train: 2,416,013.55
+  MAE Test: 8,645,928.67
+  MAPE Train: 5.53%
+  MAPE Test: 17.53%
+  Ratio Overfitting: 1.66
+  Estado: ✓ Overfitting controlado
+
+CLUSTER 2.0:
+  Muestras: 273.0
+  Features: 24.0
+  R² Train: 0.8740
+  R² Test: 0.4788
+  RMSE Train: 2,825,929.32
+  RMSE Test: 6,052,626.41
+  MAE Train: 2,283,782.99
+  MAE Test: 4,704,547.73
+  MAPE Train: 35.08%
+  MAPE Test: 62.23%
+  Ratio Overfitting: 1.83
+  Estado: ✓ Overfitting controlado
+
+CLUSTER 0.0:
+  Muestras: 339.0
+  Features: 24.0
+  R² Train: 0.8358
+  R² Test: 0.1467
+  RMSE Train: 1,247,321.18
+  RMSE Test: 2,240,113.33
+  MAE Train: 862,237.33
+  MAE Test: 1,558,848.60
+  MAPE Train: 49.63%
+  MAPE Test: 74.00%
+  Ratio Overfitting: 5.70
+  Estado: ⚠️ Alto overfitting
+

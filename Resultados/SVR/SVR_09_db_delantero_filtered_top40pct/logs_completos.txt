@@ -1,0 +1,421 @@
+2025-06-20 23:44:42 - Archivo cargado: DB_separadas/09_db_delantero_filtered_top40pct.csv
+2025-06-20 23:44:42 - Shape original: (447, 34)
+2025-06-20 23:44:42 - Columnas excluidas encontradas: ['Lugar de nacimiento (país)', 'Nacionalidad', 'Club actual', 'Proveedor', 'Fin de contrato', 'Fecha de fichaje', 'comprado_por', 'Valor de mercado actual (numérico)', 'Cluster']
+2025-06-20 23:44:42 - Features disponibles: 25 de 34 columnas totales
+2025-06-20 23:44:42 - Features seleccionadas: 25
+2025-06-20 23:44:42 -   1. Nombre completo
+2025-06-20 23:44:42 -   2. Posición principal
+2025-06-20 23:44:42 -   3. gk_diving
+2025-06-20 23:44:42 -   4. gk_handling
+2025-06-20 23:44:42 -   5. gk_kicking
+2025-06-20 23:44:42 -   6. gk_positioning
+2025-06-20 23:44:42 -   7. gk_reflexes
+2025-06-20 23:44:42 -   8. overallrating
+2025-06-20 23:44:42 -   9. potential
+2025-06-20 23:44:42 -   10. jumping
+2025-06-20 23:44:42 -   ... y 15 más
+2025-06-20 23:44:42 - 
+INFORMACIÓN GENERAL DEL DATASET:
+2025-06-20 23:44:42 - Shape total: (447, 34)
+2025-06-20 23:44:42 - Features disponibles: 25
+2025-06-20 23:44:42 - Variable objetivo: Valor de mercado actual (numérico)
+2025-06-20 23:44:42 - Columna de cluster: Cluster
+2025-06-20 23:44:42 - 
+DISTRIBUCIÓN DE CLUSTERS:
+2025-06-20 23:44:42 -   Cluster 0: 104 muestras (23.3%)
+2025-06-20 23:44:42 -   Cluster 1: 258 muestras (57.7%)
+2025-06-20 23:44:42 -   Cluster 2: 4 muestras (0.9%)
+2025-06-20 23:44:42 -   Cluster 3: 81 muestras (18.1%)
+2025-06-20 23:44:42 - 
+============================================================
+2025-06-20 23:44:42 - PROCESANDO CLUSTER 0
+2025-06-20 23:44:42 - ============================================================
+2025-06-20 23:44:42 - Preprocesando features para Cluster 0...
+2025-06-20 23:44:42 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-20 23:44:42 - Columnas numéricas: 24
+2025-06-20 23:44:42 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-20 23:44:42 - Estadísticas del cluster 0:
+2025-06-20 23:44:42 -   Media: 2,575,240
+2025-06-20 23:44:42 -   Desv. estándar: 2,771,635
+2025-06-20 23:44:42 -   Rango: [0, 15,000,000]
+2025-06-20 23:44:42 -   Coef. variación: 1.076
+2025-06-20 23:44:42 -   ✓ Variabilidad normal en Cluster 0
+2025-06-20 23:44:42 - 
+Entrenando modelo para Cluster 0...
+2025-06-20 23:44:42 - Muestras: 104, Features: 24
+2025-06-20 23:44:42 - Estadísticas del cluster:
+2025-06-20 23:44:42 -   Media: 2,575,240
+2025-06-20 23:44:42 -   Desviación estándar: 2,771,635
+2025-06-20 23:44:42 -   Coeficiente de variación: 1.076
+2025-06-20 23:44:42 - Variables X sin escalar - Shape: (78, 24)
+2025-06-20 23:44:42 - Variable y escalada - Rango train: [-0.841, 4.417]
+2025-06-20 23:44:42 - Configuración:
+2025-06-20 23:44:42 -   CV splits: 5
+2025-06-20 23:44:42 -   División train/test: 78/26 (75%/25%)
+2025-06-20 23:44:42 - Iniciando optimización bayesiana...
+2025-06-20 23:44:42 -   Iteración 1/20: C=24.526, kernel=linear, epsilon=0.782
+2025-06-20 23:44:42 -     R² val: -1.2710
+2025-06-20 23:44:42 -     ✓ Nuevo mejor score: -1.2710
+2025-06-20 23:44:42 -   Iteración 2/20: C=2.175, kernel=linear, epsilon=0.465
+2025-06-20 23:44:42 -     R² val: -0.5094
+2025-06-20 23:44:42 -     ✓ Nuevo mejor score: -0.5094
+2025-06-20 23:44:42 -   Iteración 3/20: C=0.268, kernel=rbf, epsilon=0.066
+2025-06-20 23:44:42 -     R² val: 0.0326
+2025-06-20 23:44:42 -     ✓ Nuevo mejor score: 0.0326
+2025-06-20 23:44:42 -   Iteración 4/20: C=65.412, kernel=linear, epsilon=0.992
+2025-06-20 23:44:42 -     R² val: -1.7480
+2025-06-20 23:44:42 -   Iteración 5/20: C=6.838, kernel=linear, epsilon=0.033
+2025-06-20 23:44:42 -     R² val: -0.3512
+2025-06-20 23:44:42 -   Iteración 6/20: C=0.100, kernel=poly, epsilon=0.010
+2025-06-20 23:44:42 -     R² val: -0.1604
+2025-06-20 23:44:42 -   Iteración 7/20: C=0.100, kernel=rbf, epsilon=0.010
+2025-06-20 23:44:42 -     R² val: 0.0504
+2025-06-20 23:44:42 -     ✓ Nuevo mejor score: 0.0504
+2025-06-20 23:44:42 -   Iteración 8/20: C=0.100, kernel=rbf, epsilon=0.164
+2025-06-20 23:44:42 -     R² val: -0.1726
+2025-06-20 23:44:42 -   Iteración 9/20: C=100.000, kernel=poly, epsilon=0.174
+2025-06-20 23:44:42 -     R² val: -3.3712
+2025-06-20 23:44:43 -   Iteración 10/20: C=0.100, kernel=rbf, epsilon=1.000
+2025-06-20 23:44:43 -     R² val: -0.8993
+2025-06-20 23:44:43 -   Iteración 11/20: C=0.328, kernel=rbf, epsilon=0.010
+2025-06-20 23:44:43 -     R² val: 0.1079
+2025-06-20 23:44:43 -     ✓ Nuevo mejor score: 0.1079
+2025-06-20 23:44:43 -   Iteración 12/20: C=42.979, kernel=linear, epsilon=0.895
+2025-06-20 23:44:43 -     R² val: -1.4549
+2025-06-20 23:44:43 -   Iteración 13/20: C=23.071, kernel=linear, epsilon=0.251
+2025-06-20 23:44:43 -     R² val: -0.8638
+2025-06-20 23:44:43 -   Iteración 14/20: C=0.299, kernel=linear, epsilon=0.010
+2025-06-20 23:44:43 -     R² val: 0.0080
+2025-06-20 23:44:43 -   Iteración 15/20: C=3.116, kernel=rbf, epsilon=0.443
+2025-06-20 23:44:43 -     R² val: -0.0944
+2025-06-20 23:44:43 -   Iteración 16/20: C=2.484, kernel=rbf, epsilon=0.010
+2025-06-20 23:44:43 -     R² val: -0.1433
+2025-06-20 23:44:43 -   Iteración 17/20: C=0.100, kernel=rbf, epsilon=1.000
+2025-06-20 23:44:43 -     R² val: -0.8291
+2025-06-20 23:44:44 -   Iteración 18/20: C=2.883, kernel=linear, epsilon=0.386
+2025-06-20 23:44:44 -     R² val: -0.5608
+2025-06-20 23:44:44 -   Iteración 19/20: C=14.837, kernel=rbf, epsilon=0.552
+2025-06-20 23:44:44 -     R² val: -0.1736
+2025-06-20 23:44:44 -   Iteración 20/20: C=4.102, kernel=rbf, epsilon=0.010
+2025-06-20 23:44:44 -     R² val: -0.4046
+2025-06-20 23:44:44 - Optimización completada. Mejor score: 0.1079
+2025-06-20 23:44:44 - Mejores parámetros: {'C': 0.32763211057611924, 'kernel': 'rbf', 'epsilon': 0.01, 'gamma': 0.09999999999999999}
+2025-06-20 23:44:44 - Entrenando modelo final...
+2025-06-20 23:44:44 - Generando predicciones...
+2025-06-20 23:44:44 - Métricas finales:
+2025-06-20 23:44:44 -   R² Train: 0.2567
+2025-06-20 23:44:44 -   R² Test: 0.2704
+2025-06-20 23:44:44 -   MAE Train: 1,152,047.93
+2025-06-20 23:44:44 -   MAE Test: 1,481,693.62
+2025-06-20 23:44:44 -   MSE Train: 5,849,380,367,068.38
+2025-06-20 23:44:44 -   MSE Test: 4,969,097,780,752.24
+2025-06-20 23:44:44 -   RMSE Train: 2,418,549.23
+2025-06-20 23:44:44 -   RMSE Test: 2,229,147.32
+2025-06-20 23:44:44 -   MAPE Train: 54.41%
+2025-06-20 23:44:44 -   MAPE Test: 311.70%
+2025-06-20 23:44:44 -   Ratio overfitting: 0.95
+2025-06-20 23:44:44 - Generando gráficas...
+2025-06-20 23:44:47 - Modelo para Cluster 0 completado!
+2025-06-20 23:44:47 - 
+✓ MODELO ENTRENADO EXITOSAMENTE PARA CLUSTER 0
+2025-06-20 23:44:47 - Mejores parámetros: {'C': 0.32763211057611924, 'kernel': 'rbf', 'epsilon': 0.01, 'gamma': 0.09999999999999999}
+2025-06-20 23:44:47 - R² Train: 0.2567
+2025-06-20 23:44:47 - R² Test: 0.2704
+2025-06-20 23:44:47 - MAE Train: 1,152,047.93
+2025-06-20 23:44:47 - MAE Test: 1,481,693.62
+2025-06-20 23:44:47 - MSE Train: 5,849,380,367,068.38
+2025-06-20 23:44:47 - MSE Test: 4,969,097,780,752.24
+2025-06-20 23:44:47 - RMSE Train: 2,418,549.23
+2025-06-20 23:44:47 - RMSE Test: 2,229,147.32
+2025-06-20 23:44:47 - MAPE Train: 54.41%
+2025-06-20 23:44:47 - MAPE Test: 311.70%
+2025-06-20 23:44:47 - CV Score: 0.1079
+2025-06-20 23:44:47 - Ratio Overfitting: 0.95
+2025-06-20 23:44:47 - ✓ Nivel de sobreajuste aceptable
+2025-06-20 23:44:47 - 
+============================================================
+2025-06-20 23:44:47 - PROCESANDO CLUSTER 1
+2025-06-20 23:44:47 - ============================================================
+2025-06-20 23:44:47 - Preprocesando features para Cluster 1...
+2025-06-20 23:44:47 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-20 23:44:47 - Columnas numéricas: 24
+2025-06-20 23:44:47 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-20 23:44:47 - Estadísticas del cluster 1:
+2025-06-20 23:44:47 -   Media: 9,239,922
+2025-06-20 23:44:47 -   Desv. estándar: 7,048,464
+2025-06-20 23:44:47 -   Rango: [600,000, 35,000,000]
+2025-06-20 23:44:47 -   Coef. variación: 0.763
+2025-06-20 23:44:47 -   ✓ Variabilidad normal en Cluster 1
+2025-06-20 23:44:47 - 
+Entrenando modelo para Cluster 1...
+2025-06-20 23:44:47 - Muestras: 258, Features: 24
+2025-06-20 23:44:47 - Estadísticas del cluster:
+2025-06-20 23:44:47 -   Media: 9,239,922
+2025-06-20 23:44:47 -   Desviación estándar: 7,048,464
+2025-06-20 23:44:47 -   Coeficiente de variación: 0.763
+2025-06-20 23:44:47 - Variables X sin escalar - Shape: (193, 24)
+2025-06-20 23:44:47 - Variable y escalada - Rango train: [-1.245, 2.339]
+2025-06-20 23:44:47 - Configuración:
+2025-06-20 23:44:47 -   CV splits: 5
+2025-06-20 23:44:47 -   División train/test: 193/65 (75%/25%)
+2025-06-20 23:44:47 - Iniciando optimización bayesiana...
+2025-06-20 23:44:47 -   Iteración 1/20: C=24.526, kernel=linear, epsilon=0.782
+2025-06-20 23:44:47 -     R² val: 0.1830
+2025-06-20 23:44:47 -     ✓ Nuevo mejor score: 0.1830
+2025-06-20 23:44:47 -   Iteración 2/20: C=2.175, kernel=linear, epsilon=0.465
+2025-06-20 23:44:47 -     R² val: 0.2347
+2025-06-20 23:44:47 -     ✓ Nuevo mejor score: 0.2347
+2025-06-20 23:44:47 -   Iteración 3/20: C=0.268, kernel=rbf, epsilon=0.066
+2025-06-20 23:44:47 -     R² val: 0.1326
+2025-06-20 23:44:47 -   Iteración 4/20: C=65.412, kernel=linear, epsilon=0.992
+2025-06-20 23:44:47 -     R² val: 0.1431
+2025-06-20 23:44:47 -   Iteración 5/20: C=6.838, kernel=linear, epsilon=0.033
+2025-06-20 23:44:47 -     R² val: 0.1423
+2025-06-20 23:44:47 -   Iteración 6/20: C=3.044, kernel=linear, epsilon=0.551
+2025-06-20 23:44:47 -     R² val: 0.2143
+2025-06-20 23:44:47 -   Iteración 7/20: C=79.824, kernel=poly, epsilon=0.448
+2025-06-20 23:44:47 -     R² val: -0.1523
+2025-06-20 23:44:47 -   Iteración 8/20: C=100.000, kernel=rbf, epsilon=0.469
+2025-06-20 23:44:47 -     R² val: 0.2817
+2025-06-20 23:44:47 -     ✓ Nuevo mejor score: 0.2817
+2025-06-20 23:44:48 -   Iteración 9/20: C=0.100, kernel=linear, epsilon=1.000
+2025-06-20 23:44:48 -     R² val: 0.2770
+2025-06-20 23:44:48 -   Iteración 10/20: C=100.000, kernel=rbf, epsilon=1.000
+2025-06-20 23:44:48 -     R² val: 0.2772
+2025-06-20 23:44:48 -   Iteración 11/20: C=100.000, kernel=rbf, epsilon=0.010
+2025-06-20 23:44:48 -     R² val: 0.2367
+2025-06-20 23:44:48 -   Iteración 12/20: C=0.100, kernel=linear, epsilon=0.010
+2025-06-20 23:44:48 -     R² val: 0.2452
+2025-06-20 23:44:48 -   Iteración 13/20: C=0.100, kernel=linear, epsilon=1.000
+2025-06-20 23:44:48 -     R² val: 0.2770
+2025-06-20 23:44:48 -   Iteración 14/20: C=0.471, kernel=linear, epsilon=1.000
+2025-06-20 23:44:48 -     R² val: 0.2782
+2025-06-20 23:44:48 -   Iteración 15/20: C=13.723, kernel=rbf, epsilon=1.000
+2025-06-20 23:44:48 -     R² val: 0.2747
+2025-06-20 23:44:48 -   Iteración 16/20: C=100.000, kernel=linear, epsilon=1.000
+2025-06-20 23:44:49 -     R² val: 0.1422
+2025-06-20 23:44:49 -   Iteración 17/20: C=0.613, kernel=rbf, epsilon=0.678
+2025-06-20 23:44:49 -     R² val: 0.1084
+2025-06-20 23:44:49 -   Iteración 18/20: C=78.986, kernel=poly, epsilon=0.272
+2025-06-20 23:44:49 -     R² val: 0.1815
+2025-06-20 23:44:49 -   Iteración 19/20: C=100.000, kernel=rbf, epsilon=0.387
+2025-06-20 23:44:49 -     R² val: 0.1090
+2025-06-20 23:44:50 -   Iteración 20/20: C=100.000, kernel=rbf, epsilon=0.507
+2025-06-20 23:44:50 -     R² val: 0.2425
+2025-06-20 23:44:50 - Optimización completada. Mejor score: 0.2817
+2025-06-20 23:44:50 - Mejores parámetros: {'C': 100.0, 'kernel': 'rbf', 'epsilon': 0.4689923430042777, 'gamma': 0.09999999999999999}
+2025-06-20 23:44:50 - Entrenando modelo final...
+2025-06-20 23:44:50 - Generando predicciones...
+2025-06-20 23:44:50 - Métricas finales:
+2025-06-20 23:44:50 -   R² Train: 0.8356
+2025-06-20 23:44:50 -   R² Test: 0.1575
+2025-06-20 23:44:50 -   MAE Train: 2,587,034.68
+2025-06-20 23:44:50 -   MAE Test: 5,342,224.62
+2025-06-20 23:44:50 -   MSE Train: 7,619,140,267,972.42
+2025-06-20 23:44:50 -   MSE Test: 49,313,152,846,188.75
+2025-06-20 23:44:50 -   RMSE Train: 2,760,279.02
+2025-06-20 23:44:50 -   RMSE Test: 7,022,332.44
+2025-06-20 23:44:50 -   MAPE Train: 58.02%
+2025-06-20 23:44:50 -   MAPE Test: 93.81%
+2025-06-20 23:44:50 -   Ratio overfitting: 5.30
+2025-06-20 23:44:50 - Generando gráficas...
+2025-06-20 23:44:52 - Modelo para Cluster 1 completado!
+2025-06-20 23:44:52 - 
+✓ MODELO ENTRENADO EXITOSAMENTE PARA CLUSTER 1
+2025-06-20 23:44:52 - Mejores parámetros: {'C': 100.0, 'kernel': 'rbf', 'epsilon': 0.4689923430042777, 'gamma': 0.09999999999999999}
+2025-06-20 23:44:52 - R² Train: 0.8356
+2025-06-20 23:44:52 - R² Test: 0.1575
+2025-06-20 23:44:52 - MAE Train: 2,587,034.68
+2025-06-20 23:44:52 - MAE Test: 5,342,224.62
+2025-06-20 23:44:52 - MSE Train: 7,619,140,267,972.42
+2025-06-20 23:44:52 - MSE Test: 49,313,152,846,188.75
+2025-06-20 23:44:52 - RMSE Train: 2,760,279.02
+2025-06-20 23:44:52 - RMSE Test: 7,022,332.44
+2025-06-20 23:44:52 - MAPE Train: 58.02%
+2025-06-20 23:44:52 - MAPE Test: 93.81%
+2025-06-20 23:44:52 - CV Score: 0.2817
+2025-06-20 23:44:52 - Ratio Overfitting: 5.30
+2025-06-20 23:44:52 - ⚠️  ADVERTENCIA: Sobreajuste severo detectado
+2025-06-20 23:44:52 - 
+============================================================
+2025-06-20 23:44:52 - PROCESANDO CLUSTER 2
+2025-06-20 23:44:52 - ============================================================
+2025-06-20 23:44:52 - Preprocesando features para Cluster 2...
+2025-06-20 23:44:52 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-20 23:44:52 - Columnas numéricas: 24
+2025-06-20 23:44:52 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-20 23:44:52 - Estadísticas del cluster 2:
+2025-06-20 23:44:52 -   Media: 170,000,000
+2025-06-20 23:44:52 -   Desv. estándar: 35,590,261
+2025-06-20 23:44:52 -   Rango: [130,000,000, 200,000,000]
+2025-06-20 23:44:52 -   Coef. variación: 0.209
+2025-06-20 23:44:52 -   ✓ Variabilidad normal en Cluster 2
+2025-06-20 23:44:52 - 
+Entrenando modelo para Cluster 2...
+2025-06-20 23:44:52 - Muestras: 4, Features: 24
+2025-06-20 23:44:52 - Estadísticas del cluster:
+2025-06-20 23:44:52 -   Media: 170,000,000
+2025-06-20 23:44:52 -   Desviación estándar: 35,590,261
+2025-06-20 23:44:52 -   Coeficiente de variación: 0.209
+2025-06-20 23:44:52 - Variables X sin escalar - Shape: (3, 24)
+2025-06-20 23:44:52 - Variable y escalada - Rango train: [-1.019, 1.359]
+2025-06-20 23:44:52 - Configuración:
+2025-06-20 23:44:52 -   CV splits: 5
+2025-06-20 23:44:52 -   División train/test: 3/1 (75%/25%)
+2025-06-20 23:44:52 - Iniciando optimización bayesiana...
+2025-06-20 23:44:52 -   Iteración 1/20: C=24.526, kernel=linear, epsilon=0.782
+2025-06-20 23:44:52 -     R² val: nan
+2025-06-20 23:44:52 -   Iteración 2/20: C=2.175, kernel=linear, epsilon=0.465
+2025-06-20 23:44:52 -     R² val: nan
+2025-06-20 23:44:52 -   Iteración 3/20: C=0.268, kernel=rbf, epsilon=0.066
+2025-06-20 23:44:52 -     R² val: nan
+2025-06-20 23:44:52 -   Iteración 4/20: C=65.412, kernel=linear, epsilon=0.992
+2025-06-20 23:44:52 -     R² val: nan
+2025-06-20 23:44:52 -   Iteración 5/20: C=6.838, kernel=linear, epsilon=0.033
+2025-06-20 23:44:52 -     R² val: nan
+2025-06-20 23:44:52 - ✗ ERROR procesando cluster 2: Input y contains NaN.
+2025-06-20 23:44:52 - 
+============================================================
+2025-06-20 23:44:52 - PROCESANDO CLUSTER 3
+2025-06-20 23:44:52 - ============================================================
+2025-06-20 23:44:52 - Preprocesando features para Cluster 3...
+2025-06-20 23:44:52 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-20 23:44:52 - Columnas numéricas: 24
+2025-06-20 23:44:52 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-20 23:44:52 - Estadísticas del cluster 3:
+2025-06-20 23:44:52 -   Media: 44,839,506
+2025-06-20 23:44:52 -   Desv. estándar: 19,142,529
+2025-06-20 23:44:52 -   Rango: [15,000,000, 100,000,000]
+2025-06-20 23:44:52 -   Coef. variación: 0.427
+2025-06-20 23:44:52 -   ✓ Variabilidad normal en Cluster 3
+2025-06-20 23:44:52 - 
+Entrenando modelo para Cluster 3...
+2025-06-20 23:44:52 - Muestras: 81, Features: 24
+2025-06-20 23:44:52 - Estadísticas del cluster:
+2025-06-20 23:44:52 -   Media: 44,839,506
+2025-06-20 23:44:52 -   Desviación estándar: 19,142,529
+2025-06-20 23:44:52 -   Coeficiente de variación: 0.427
+2025-06-20 23:44:52 - Variables X sin escalar - Shape: (60, 24)
+2025-06-20 23:44:52 - Variable y escalada - Rango train: [-1.436, 2.778]
+2025-06-20 23:44:52 - Configuración:
+2025-06-20 23:44:52 -   CV splits: 5
+2025-06-20 23:44:52 -   División train/test: 60/21 (75%/25%)
+2025-06-20 23:44:52 - Iniciando optimización bayesiana...
+2025-06-20 23:44:52 -   Iteración 1/20: C=24.526, kernel=linear, epsilon=0.782
+2025-06-20 23:44:52 -     R² val: -0.4058
+2025-06-20 23:44:52 -     ✓ Nuevo mejor score: -0.4058
+2025-06-20 23:44:52 -   Iteración 2/20: C=2.175, kernel=linear, epsilon=0.465
+2025-06-20 23:44:52 -     R² val: 0.1347
+2025-06-20 23:44:52 -     ✓ Nuevo mejor score: 0.1347
+2025-06-20 23:44:52 -   Iteración 3/20: C=0.268, kernel=rbf, epsilon=0.066
+2025-06-20 23:44:52 -     R² val: -0.1264
+2025-06-20 23:44:52 -   Iteración 4/20: C=65.412, kernel=linear, epsilon=0.992
+2025-06-20 23:44:52 -     R² val: -0.0658
+2025-06-20 23:44:52 -   Iteración 5/20: C=6.838, kernel=linear, epsilon=0.033
+2025-06-20 23:44:52 -     R² val: -0.0294
+2025-06-20 23:44:53 -   Iteración 6/20: C=2.688, kernel=linear, epsilon=0.464
+2025-06-20 23:44:53 -     R² val: 0.0944
+2025-06-20 23:44:53 -   Iteración 7/20: C=1.337, kernel=linear, epsilon=0.465
+2025-06-20 23:44:53 -     R² val: 0.2165
+2025-06-20 23:44:53 -     ✓ Nuevo mejor score: 0.2165
+2025-06-20 23:44:53 -   Iteración 8/20: C=0.366, kernel=linear, epsilon=0.459
+2025-06-20 23:44:53 -     R² val: 0.2681
+2025-06-20 23:44:53 -     ✓ Nuevo mejor score: 0.2681
+2025-06-20 23:44:53 -   Iteración 9/20: C=0.489, kernel=linear, epsilon=0.365
+2025-06-20 23:44:53 -     R² val: 0.2007
+2025-06-20 23:44:53 -   Iteración 10/20: C=0.100, kernel=linear, epsilon=0.629
+2025-06-20 23:44:53 -     R² val: 0.1704
+2025-06-20 23:44:53 -   Iteración 11/20: C=0.381, kernel=poly, epsilon=0.490
+2025-06-20 23:44:53 -     R² val: -0.3160
+2025-06-20 23:44:53 -   Iteración 12/20: C=0.484, kernel=linear, epsilon=0.538
+2025-06-20 23:44:53 -     R² val: 0.3059
+2025-06-20 23:44:53 -     ✓ Nuevo mejor score: 0.3059
+2025-06-20 23:44:53 -   Iteración 13/20: C=100.000, kernel=rbf, epsilon=1.000
+2025-06-20 23:44:53 -     R² val: 0.0246
+2025-06-20 23:44:54 -   Iteración 14/20: C=100.000, kernel=rbf, epsilon=0.010
+2025-06-20 23:44:54 -     R² val: -0.3514
+2025-06-20 23:44:54 -   Iteración 15/20: C=0.174, kernel=linear, epsilon=1.000
+2025-06-20 23:44:54 -     R² val: 0.1604
+2025-06-20 23:44:54 -   Iteración 16/20: C=0.482, kernel=linear, epsilon=0.716
+2025-06-20 23:44:54 -     R² val: 0.2200
+2025-06-20 23:44:54 -   Iteración 17/20: C=0.100, kernel=rbf, epsilon=1.000
+2025-06-20 23:44:54 -     R² val: -0.1439
+2025-06-20 23:44:54 -   Iteración 18/20: C=0.100, kernel=linear, epsilon=0.010
+2025-06-20 23:44:54 -     R² val: 0.1003
+2025-06-20 23:44:54 -   Iteración 19/20: C=100.000, kernel=linear, epsilon=0.010
+2025-06-20 23:44:55 -     R² val: -0.3419
+2025-06-20 23:44:55 -   Iteración 20/20: C=100.000, kernel=poly, epsilon=1.000
+2025-06-20 23:44:55 -     R² val: -0.0871
+2025-06-20 23:44:55 - Optimización completada. Mejor score: 0.3059
+2025-06-20 23:44:55 - Mejores parámetros: {'C': 0.48369118481678725, 'kernel': 'linear', 'epsilon': 0.5377046748111807, 'gamma': 0.08345590292317383}
+2025-06-20 23:44:55 - Entrenando modelo final...
+2025-06-20 23:44:55 - Generando predicciones...
+2025-06-20 23:44:55 - Métricas finales:
+2025-06-20 23:44:55 -   R² Train: 0.5444
+2025-06-20 23:44:55 -   R² Test: -0.3180
+2025-06-20 23:44:55 -   MAE Train: 10,859,647.49
+2025-06-20 23:44:55 -   MAE Test: 13,635,675.05
+2025-06-20 23:44:55 -   MSE Train: 185,372,924,861,638.06
+2025-06-20 23:44:55 -   MSE Test: 296,783,331,993,284.56
+2025-06-20 23:44:55 -   RMSE Train: 13,615,172.60
+2025-06-20 23:44:55 -   RMSE Test: 17,227,400.62
+2025-06-20 23:44:55 -   MAPE Train: 30.71%
+2025-06-20 23:44:55 -   MAPE Test: 29.09%
+2025-06-20 23:44:55 -   Ratio overfitting: 1.71
+2025-06-20 23:44:55 - Generando gráficas...
+2025-06-20 23:44:58 - Modelo para Cluster 3 completado!
+2025-06-20 23:44:58 - 
+✓ MODELO ENTRENADO EXITOSAMENTE PARA CLUSTER 3
+2025-06-20 23:44:58 - Mejores parámetros: {'C': 0.48369118481678725, 'kernel': 'linear', 'epsilon': 0.5377046748111807, 'gamma': 0.08345590292317383}
+2025-06-20 23:44:58 - R² Train: 0.5444
+2025-06-20 23:44:58 - R² Test: -0.3180
+2025-06-20 23:44:58 - MAE Train: 10,859,647.49
+2025-06-20 23:44:58 - MAE Test: 13,635,675.05
+2025-06-20 23:44:58 - MSE Train: 185,372,924,861,638.06
+2025-06-20 23:44:58 - MSE Test: 296,783,331,993,284.56
+2025-06-20 23:44:58 - RMSE Train: 13,615,172.60
+2025-06-20 23:44:58 - RMSE Test: 17,227,400.62
+2025-06-20 23:44:58 - MAPE Train: 30.71%
+2025-06-20 23:44:58 - MAPE Test: 29.09%
+2025-06-20 23:44:58 - CV Score: 0.3059
+2025-06-20 23:44:58 - Ratio Overfitting: 1.71
+2025-06-20 23:44:58 - ✓ Nivel de sobreajuste aceptable
+2025-06-20 23:44:58 - 
+============================================================
+2025-06-20 23:44:58 - GENERANDO CSV CON PREDICCIONES
+2025-06-20 23:44:58 - ============================================================
+2025-06-20 23:44:58 - Generando predicciones para todo el dataset...
+2025-06-20 23:44:58 - Generando predicciones para Cluster 0...
+2025-06-20 23:44:58 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-20 23:44:58 - Columnas numéricas: 24
+2025-06-20 23:44:58 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-20 23:44:58 - ✓ Predicciones generadas para Cluster 0: 104 valores
+2025-06-20 23:44:58 - Generando predicciones para Cluster 1...
+2025-06-20 23:44:58 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-20 23:44:58 - Columnas numéricas: 24
+2025-06-20 23:44:58 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-20 23:44:58 - ✓ Predicciones generadas para Cluster 1: 258 valores
+2025-06-20 23:44:58 - Generando predicciones para Cluster 2...
+2025-06-20 23:44:58 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-20 23:44:58 - Columnas numéricas: 24
+2025-06-20 23:44:58 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-20 23:44:58 - ⚠️  Modelo no encontrado para Cluster 2
+2025-06-20 23:44:58 - Generando predicciones para Cluster 3...
+2025-06-20 23:44:58 - Columnas categóricas encontradas (serán eliminadas): 1
+2025-06-20 23:44:58 - Columnas numéricas: 24
+2025-06-20 23:44:58 - Eliminando columnas categóricas: ['Nombre completo']
+2025-06-20 23:44:58 - ✓ Predicciones generadas para Cluster 3: 81 valores
+2025-06-20 23:44:58 - CSV con predicciones guardado: SVR_09_db_delantero_filtered_top40pct/09_db_delantero_filtered_top40pct_con_predicciones.csv
+2025-06-20 23:44:58 - Predicciones generadas: 443/447 (99.1%)
+2025-06-20 23:44:58 - Gráfico comparativo guardado en: SVR_09_db_delantero_filtered_top40pct/graficas/comparacion_clusters.png
+2025-06-20 23:44:58 - 
+Reporte detallado guardado en: SVR_09_db_delantero_filtered_top40pct/reporte_detallado.txt
+2025-06-20 23:44:58 - Resumen CSV guardado en: SVR_09_db_delantero_filtered_top40pct/resumen_modelos_por_cluster.csv
+2025-06-20 23:44:58 - 
+================================================================================
+2025-06-20 23:44:58 - PROCESAMIENTO COMPLETADO
+2025-06-20 23:44:58 - Clusters procesados exitosamente: 3
+2025-06-20 23:44:58 - Total de clusters: 4
+2025-06-20 23:44:58 - Resultados guardados en: SVR_09_db_delantero_filtered_top40pct
+2025-06-20 23:44:58 - Logs completos guardados en: SVR_09_db_delantero_filtered_top40pct/logs_completos.txt
+2025-06-20 23:44:58 - ================================================================================

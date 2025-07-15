@@ -1,0 +1,11 @@
+# Ignorar todos los archivos que contengan la palabra "mock"
+*mock*
+
+# Ignorar todas las carpetas que contengan la palabra "mock" y su contenido
+*mock*/
+
+venv/
+.venv/
+__pycache__/
+
+*.pyc

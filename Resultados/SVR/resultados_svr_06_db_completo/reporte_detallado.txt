@@ -1,0 +1,61 @@
+REPORTE DETALLADO - MODELO SVR
+================================================================================
+
+Archivo procesado: DB_viejas/06_db_completo.csv
+Fecha de procesamiento: 2025-06-26 08:36:08.173323
+
+PARÁMETROS DEL MODELO:
+  C: 1000.0
+  kernel: rbf
+  gamma: 0.0004140734058934973
+  epsilon: 0.001
+
+MÉTRICAS DE RENDIMIENTO:
+  R² Train: 0.7820
+  R² Test: 0.7459
+  MAE Train: 4,205,407.97
+  MAE Test: 5,505,399.47
+  MSE Train: 66,757,567,082,418.21
+  MSE Test: 102,460,616,317,960.80
+  RMSE Train: 8,170,530.40
+  RMSE Test: 10,122,283.16
+  MAPE Train: 81.26%
+  MAPE Test: 122.76%
+  CV Score: 0.7094
+  Ratio Overfitting: 1.05
+
+  INTERPRETACIÓN: Nivel de sobreajuste aceptable
+
+INFORMACIÓN DEL DATASET:
+  Número total de muestras: 1875
+  Número de features: 50
+  División train/test: 80%/20%
+
+OPTIMIZACIÓN DE HIPERPARÁMETROS:
+  Iteraciones de optimización: 50
+  Mejor CV Score: 0.7094
+
+ARCHIVOS GENERADOS:
+  📊 Gráfico de entrenamiento: resultados_svr_06_db_completo/graficas/analisis_completo_train.png
+  📊 Gráfico de prueba: resultados_svr_06_db_completo/graficas/analisis_completo_test.png
+  📊 Gráfico de importancia: resultados_svr_06_db_completo/graficas/importancia_features.png
+  📊 Evolución CV: resultados_svr_06_db_completo/graficas/evolucion_cv.png
+  📊 Análisis adicional: analisis_adicional.png
+  📊 Resumen rendimiento: resumen_rendimiento.png
+  📄 CSV con predicciones: 06_db_completo_con_predicciones.csv
+  📄 Este reporte: reporte_detallado.txt
+  📄 Logs completos: logs_completos.txt
+
+DESCRIPCIÓN DE ARCHIVOS:
+  • Gráfico de entrenamiento: Análisis completo del conjunto de entrenamiento
+  • Gráfico de prueba: Análisis completo del conjunto de prueba
+  • Importancia de features: Aproximación de la importancia de cada variable
+  • Evolución CV: Progreso de la optimización de hiperparámetros
+  • Análisis adicional: Gráficos avanzados de análisis de errores
+  • Resumen rendimiento: Dashboard con métricas principales
+  • CSV con predicciones: Dataset original + columna 'Valor_Predicho'
+
+RECOMENDACIONES:
+  ✅ Rendimiento aceptable del modelo
+  ✅ Nivel de sobreajuste bajo
+  ⚠️  Error porcentual alto (MAPE > 20%)
