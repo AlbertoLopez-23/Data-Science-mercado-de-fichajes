@@ -72,84 +72,86 @@
             <div class="results-grid" id="results-grid"></div>
         </section>
 
-        <!-- Sección de tabla -->
-        <section class="table-section" id="table-section" style="display: none;">
-            <div class="table-header">
-                <div class="table-controls">
-                    <button id="back-to-search-btn" class="back-btn">← Volver a Búsqueda</button>
-                    <div class="table-limit-control">
-                        <label for="limit-select">Mostrar:</label>
-                        <select id="limit-select" class="limit-select">
-                            <option value="100">100 jugadores</option>
-                            <option value="250">250 jugadores</option>
-                            <option value="500" selected>500 jugadores</option>
-                            <option value="1000">1000 jugadores</option>
-                            <option value="all">Todos</option>
-                        </select>
-                    </div>
-                    <div class="table-filter-control">
-                        <input type="text" id="table-filter" class="table-filter" placeholder="Filtrar en tabla...">
-                    </div>
-                </div>
-                <div class="table-info" id="table-info"></div>
+       <!-- Sección de tabla -->
+<section class="table-section" id="table-section" style="display: none;">
+    <div class="table-header">
+        <div class="table-controls">
+            <button id="back-to-search-btn" class="back-btn">← Volver a Búsqueda</button>
+            <div class="table-limit-control">
+                <label for="limit-select">Mostrar:</label>
+                <select id="limit-select" class="limit-select">
+                    <option value="100">100 jugadores</option>
+                    <option value="250">250 jugadores</option>
+                    <option value="500" selected>500 jugadores</option>
+                    <option value="1000">1000 jugadores</option>
+                    <option value="all">Todos</option>
+                </select>
             </div>
-            
-            <div class="table-layout">
-                <!-- Panel de filtros - Completamente separado -->
-                <div class="filters-sidebar">
-                    <h3>Filtros</h3>
-                    
-                    <div class="filters-content">
-                        <!-- Filtros de precio -->
-                        <div class="filter-group">
-                            <h4>Valor Actual</h4>
-                            <div class="price-filter">
-                                <label>Mínimo: €<span id="min-current-value">0</span>M</label>
-                                <input type="range" id="min-current-slider" min="0" max="200" step="1" value="0">
-                            </div>
-                            <div class="price-filter">
-                                <label>Máximo: €<span id="max-current-value">200</span>M</label>
-                                <input type="range" id="max-current-slider" min="0" max="200" step="1" value="200">
-                            </div>
-                        </div>
-                        
-                        <div class="filter-group">
-                            <h4>Valor Predicho</h4>
-                            <div class="price-filter">
-                                <label>Mínimo: €<span id="min-predicted-value">0</span>M</label>
-                                <input type="range" id="min-predicted-slider" min="0" max="200" step="1" value="0">
-                            </div>
-                            <div class="price-filter">
-                                <label>Máximo: €<span id="max-predicted-value">200</span>M</label>
-                                <input type="range" id="max-predicted-slider" min="0" max="200" step="1" value="200">
-                            </div>
-                        </div>
-                        
-                        <!-- Filtros de posición -->
-                        <div class="filter-group">
-                            <h4>Posiciones</h4>
-                            <div class="position-filters" id="position-filters">
-                                <!-- Se llenarán dinámicamente -->
-                            </div>
-                            <button id="clear-position-filters" class="clear-filters-btn">Limpiar Posiciones</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Contenedor de tabla - Completamente independiente -->
-                <div class="table-wrapper">
-                    <div class="table-container">
-                        <table id="players-table" class="players-table">
-                            <thead>
-                                <tr id="table-headers"></tr>
-                            </thead>
-                            <tbody id="table-body"></tbody>
-                        </table>
-                    </div>
-                </div>
+            <div class="table-filter-control">
+                <input type="text" id="table-filter" class="table-filter" placeholder="Filtrar en tabla...">
             </div>
-        </section>
+        </div>
+        <div class="table-info" id="table-info"></div>
     </div>
+
+    <!-- Botón flotante para mostrar/ocultar filtros -->
+    <button id="toggle-filters" class="toggle-filters-btn">☰ Filtros</button>
+
+    <div class="table-layout">
+        <!-- Panel de filtros -->
+        <div class="filters-sidebar hidden" id="filtersSidebar">
+            <h3>Filtros</h3>
+
+            <div class="filters-content">
+                <!-- Filtros de precio -->
+                <div class="filter-group">
+                    <h4>Valor Actual</h4>
+                    <div class="price-filter">
+                        <label>Mínimo: €<span id="min-current-value">0</span>M</label>
+                        <input type="range" id="min-current-slider" min="0" max="200" step="1" value="0">
+                    </div>
+                    <div class="price-filter">
+                        <label>Máximo: €<span id="max-current-value">200</span>M</label>
+                        <input type="range" id="max-current-slider" min="0" max="200" step="1" value="200">
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Valor Predicho</h4>
+                    <div class="price-filter">
+                        <label>Mínimo: €<span id="min-predicted-value">0</span>M</label>
+                        <input type="range" id="min-predicted-slider" min="0" max="200" step="1" value="0">
+                    </div>
+                    <div class="price-filter">
+                        <label>Máximo: €<span id="max-predicted-value">200</span>M</label>
+                        <input type="range" id="max-predicted-slider" min="0" max="200" step="1" value="200">
+                    </div>
+                </div>
+
+                <!-- Filtros de posición -->
+                <div class="filter-group">
+                    <h4>Posiciones</h4>
+                    <div class="position-filters" id="position-filters">
+                        <!-- Se llenarán dinámicamente -->
+                    </div>
+                    <button id="clear-position-filters" class="clear-filters-btn">Limpiar Posiciones</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenedor de tabla -->
+        <div class="table-wrapper">
+            <div class="table-container">
+                <table id="players-table" class="players-table">
+                    <thead>
+                        <tr id="table-headers"></tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Modal de detalles del jugador -->
     <div class="player-detail-modal" id="player-modal" role="dialog" aria-labelledby="modal-player-name" aria-hidden="true">

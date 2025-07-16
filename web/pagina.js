@@ -1201,3 +1201,18 @@ function sortResults(sortBy) {
     
     displayResults(sorted);
 }
+
+function setupFilterToggle() {
+  const toggleButton = document.getElementById('toggle-filters');
+  const filtersSidebar = document.getElementById('filtersSidebar');
+
+  toggleButton.addEventListener('click', () => {
+    filtersSidebar.classList.toggle('hidden');
+
+    // Cambia el texto del botón (opcional)
+    const isHidden = filtersSidebar.classList.contains('hidden');
+    toggleButton.textContent = isHidden ? '☰ Filtros' : '✖ Cerrar';
+  });
+}
+
+document.addEventListener('DOMContentLoaded', setupFilterToggle);

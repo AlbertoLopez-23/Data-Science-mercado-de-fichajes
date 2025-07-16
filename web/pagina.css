@@ -1131,3 +1131,50 @@ body {
     color: var(--text-secondary);
     font-weight: 500;
 }
+
+.table-layout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.filters-sidebar {
+  width: 300px;
+  min-width: 300px;
+  background: #f1f1f1;
+  height: 100vh;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  position: relative;
+  z-index: 100;
+}
+
+.filters-sidebar.hidden {
+  transform: translateX(-100%);
+  position: absolute;
+  left: 0;
+}
+
+.table-wrapper {
+  flex-grow: 1;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+/* Botón flotante */
+.toggle-filters-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
