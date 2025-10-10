@@ -315,11 +315,14 @@ function createPlayerCard(player) {
     const position = player['Posición principal'] || 'N/A';
     const club = player['Club actual'] || 'N/A';
 
-    // Determinar color del valor predicho
+    // Determinar color del valor predicho basado en valores aproximados
+    const approxPredicted = getApproximateValue(predictedValue);
+    const approxCurrent = getApproximateValue(currentValue);
+    
     let predictedValueClass = 'predicted-value-neutral';
-    if (predictedValue > currentValue) {
+    if (approxPredicted > approxCurrent) {
         predictedValueClass = 'predicted-value-higher';
-    } else if (predictedValue < currentValue) {
+    } else if (approxPredicted < approxCurrent) {
         predictedValueClass = 'predicted-value-lower';
     }
 
@@ -364,6 +367,21 @@ function formatCurrency(value) {
     }
 }
 
+// Función para obtener el valor aproximado que se muestra al usuario
+function getApproximateValue(value) {
+    if (!value || value === 0) return 0;
+    
+    if (value >= 1000000) {
+        // Redondear a 1 decimal en millones y convertir de vuelta
+        return Math.round(value / 100000) * 100000; // 0.1M precision
+    } else if (value >= 1000) {
+        // Redondear a miles y convertir de vuelta
+        return Math.round(value / 1000) * 1000; // 1K precision
+    } else {
+        return value;
+    }
+}
+
 function sortResults() {
     const sortField = sortSelect.value;
     if (!filteredData.length) return;
@@ -389,11 +407,22 @@ function showPlayerDetail(player) {
     
     document.getElementById('modal-player-name').textContent = playerName;
     
+    // Comparar usando valores aproximados
+    const approxPredicted = getApproximateValue(predictedValue);
+    const approxCurrent = getApproximateValue(currentValue);
+    
+    let predictedClass = 'predicted-neutral';
+    if (approxPredicted > approxCurrent) {
+        predictedClass = 'predicted-higher';
+    } else if (approxPredicted < approxCurrent) {
+        predictedClass = 'predicted-lower';
+    }
+    
     // Actualizar el contenedor de valor en el modal
     const modalValueElement = document.getElementById('modal-player-value');
     modalValueElement.innerHTML = `
         <div class="modal-value-current">${formatCurrency(currentValue)}</div>
-        <div class="modal-value-predicted ${predictedValue > currentValue ? 'predicted-higher' : predictedValue < currentValue ? 'predicted-lower' : 'predicted-neutral'}">
+        <div class="modal-value-predicted ${predictedClass}">
             Predicho: ${formatCurrency(predictedValue)}
         </div>
     `;
@@ -919,11 +948,15 @@ function renderTable() {
                 const currentValue = parseFloat(player['Valor de mercado actual (numérico)']) || 0;
                 const predictedValue = parseFloat(value) || 0;
                 
+                // Comparar usando valores aproximados
+                const approxPredicted = getApproximateValue(predictedValue);
+                const approxCurrent = getApproximateValue(currentValue);
+                
                 cell.textContent = formatCurrency(predictedValue);
                 
-                if (predictedValue > currentValue) {
+                if (approxPredicted > approxCurrent) {
                     cell.classList.add('table-cell-predicted-higher');
-                } else if (predictedValue < currentValue) {
+                } else if (approxPredicted < approxCurrent) {
                     cell.classList.add('table-cell-predicted-lower');
                 } else {
                     cell.classList.add('table-cell-predicted-neutral');
@@ -931,26 +964,37 @@ function renderTable() {
             } else if (column.type === 'difference_colored') {
                 const currentValue = parseFloat(player['Valor de mercado actual (numérico)']) || 0;
                 const predictedValue = parseFloat(player['Valor_Predicho']) || 0;
-                const diffValue = predictedValue - currentValue;
+                
+                // Comparar usando valores aproximados
+                const approxPredicted = getApproximateValue(predictedValue);
+                const approxCurrent = getApproximateValue(currentValue);
+                const diffValue = approxPredicted - approxCurrent;
                 
                 cell.textContent = formatCurrency(Math.abs(diffValue));
                 
-                if (predictedValue > currentValue) {
+                if (approxPredicted > approxCurrent) {
                     cell.classList.add('table-cell-positive');
-                } else if (predictedValue < currentValue) {
+                } else if (approxPredicted < approxCurrent) {
                     cell.classList.add('table-cell-negative');
                 } else {
                     cell.classList.add('table-cell-predicted-neutral');
                 }
             } else if (column.type === 'percentage') {
+                const currentValue = parseFloat(player['Valor de mercado actual (numérico)']) || 0;
+                const predictedValue = parseFloat(player['Valor_Predicho']) || 0;
+                
+                // Comparar usando valores aproximados para determinar el color
+                const approxPredicted = getApproximateValue(predictedValue);
+                const approxCurrent = getApproximateValue(currentValue);
+                
                 const percentValue = parseFloat(value) || 0;
                 // El valor ya está en porcentaje, solo redondear a máximo 3 decimales
                 const cleanPercentage = parseFloat(percentValue.toFixed(3)).toString();
                 cell.textContent = cleanPercentage + '%';
                 
-                if (percentValue > 0) {
+                if (approxPredicted > approxCurrent) {
                     cell.classList.add('table-cell-positive');
-                } else if (percentValue < 0) {
+                } else if (approxPredicted < approxCurrent) {
                     cell.classList.add('table-cell-negative');
                 } else {
                     cell.classList.add('table-cell-predicted-neutral');
