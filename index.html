@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" id="html-lang">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football Player Analyzer - Análisis de Jugadores</title>
+    <title id="page-title">Football Player Analyzer - Análisis de Jugadores</title>
     <link rel="icon" type="image/png" href="iconofutbol.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,21 +15,26 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1>⚽ Analizador de Jugadores de Fútbol</h1>
-            <p>Análisis avanzado de jugadores de fútbol con visualizaciones</p>
+            <div class="language-toggle-container">
+                <button id="language-toggle" class="language-toggle-btn">
+                    <span id="lang-text">ES</span> / <span id="lang-text-2">EN</span>
+                </button>
+            </div>
+            <h1 data-translate="UI_Generales" data-key="Analizador de Jugadores de Fútbol">⚽ Analizador de Jugadores de Fútbol</h1>
+            <p data-translate="UI_Generales" data-key="Análisis avanzado de jugadores de fútbol con visualizaciones">Análisis avanzado de jugadores de fútbol con visualizaciones</p>
         </header>
 
         <section class="data-status-section">
             <div class="loading" id="data-loading">
                 <div class="loading-spinner"></div>
-                <p>Cargando datos de jugadores...</p>
+                <p data-translate="UI_Generales" data-key="Cargando">Cargando datos de jugadores...</p>
             </div>
             <div class="success-message" id="upload-success"></div>
             <div class="error-message" id="upload-error"></div>
         </section>
 
         <section class="search-section" id="search-section" style="display: none;">
-            <h2>🔍 Búsqueda Inteligente</h2>
+            <h2 data-translate="UI_Generales" data-key="Búsqueda Inteligente">🔍 Búsqueda Inteligente</h2>
             <div class="search-container">
                 <input 
                     type="text" 
@@ -37,7 +42,7 @@
                     class="search-input" 
                     placeholder="Ej: Daniel Ceballos Fernández, Manchester City, overallrating > 90"
                 />
-                <button id="search-btn" class="search-btn">Buscar</button>
+                <button id="search-btn" class="search-btn" data-translate="UI_Generales" data-key="Buscar">Buscar</button>
             </div>
             
             <div class="quick-searches">
@@ -46,7 +51,7 @@
                 <button class="quick-search-btn" data-query="Jude Victor William Bellingham">Jude Bellingham</button>
                 <button class="quick-search-btn" data-query="Real Madrid Cf">Real Madrid</button>
                 <button class="quick-search-btn" data-query="Liverpool Fc">Liverpool</button>
-                <button id="table-btn" class="table-btn">📊 Ver Tabla Completa</button>
+                <button id="table-btn" class="table-btn" data-translate="UI_Generales" data-key="Ver Tabla Completa">📊 Ver Tabla Completa</button>
             </div>
             
             <div class="loading" id="search-loading">
@@ -60,15 +65,6 @@
         <section class="results-section" id="results-section">
             <div class="results-header">
                 <div class="results-count" id="results-count"></div>
-                <div class="sort-controls">
-                    <label>Ordenar por:</label>
-                    <select id="sort-select" class="sort-select">
-                        <option value="value_eur">Valor de mercado</option>
-                        <option value="overall">Overall</option>
-                        <option value="age">Edad</option>
-                        <option value="short_name">Nombre</option>
-                    </select>
-                </div>
             </div>
             <div class="results-grid" id="results-grid"></div>
         </section>
@@ -77,15 +73,15 @@
 <section class="table-section" id="table-section" style="display: none;">
     <div class="table-header">
         <div class="table-controls">
-            <button id="back-to-search-btn" class="back-btn">← Volver a Búsqueda</button>
+            <button id="back-to-search-btn" class="back-btn" data-translate="UI_Generales" data-key="Volver a Búsqueda">← Volver a Búsqueda</button>
             <div class="table-limit-control">
-                <label for="limit-select">Mostrar:</label>
+                <label for="limit-select" data-translate="UI_Generales" data-key="Mostrar">Mostrar:</label>
                 <select id="limit-select" class="limit-select">
                     <option value="100">100 jugadores</option>
                     <option value="250">250 jugadores</option>
                     <option value="500" selected>500 jugadores</option>
                     <option value="1000">1000 jugadores</option>
-                    <option value="all">Todos</option>
+                    <option value="all" data-translate="UI_Generales" data-key="Todos">Todos</option>
                 </select>
             </div>
             <div class="table-filter-control">
@@ -96,12 +92,12 @@
     </div>
 
     <!-- Botón flotante para mostrar/ocultar filtros -->
-    <button id="toggle-filters" class="toggle-filters-btn">☰ Filtros</button>
+    <button id="toggle-filters" class="toggle-filters-btn" data-translate="UI_Generales" data-key="Filtros">☰ Filtros</button>
 
     <div class="table-layout">
         <!-- Panel de filtros -->
         <div class="filters-sidebar hidden" id="filtersSidebar">
-            <h3>Filtros</h3>
+            <h3 data-translate="UI_Generales" data-key="Filtros">Filtros</h3>
 
             <div class="filters-content">
                 <!-- Filtros de precio -->
@@ -135,7 +131,7 @@
                     <div class="position-filters" id="position-filters">
                         <!-- Se llenarán dinámicamente -->
                     </div>
-                    <button id="clear-position-filters" class="clear-filters-btn">Limpiar Posiciones</button>
+                    <button id="clear-position-filters" class="clear-filters-btn" data-translate="UI_Generales" data-key="Limpiar Posiciones">Limpiar Posiciones</button>
                 </div>
             </div>
         </div>
@@ -164,17 +160,17 @@
             </div>
             <div class="player-detail-grid">
                 <div class="radar-container">
-                    <h3 class="radar-title">Atributos del Jugador</h3>
+                    <h3 class="radar-title" data-translate="UI_Generales" data-key="Atributos del Jugador">Atributos del Jugador</h3>
                     <div id="radar-chart"></div>
                 </div>
                 <div class="stats-container">
-                    <h3 class="stats-title">Estadísticas Detalladas</h3>
+                    <h3 class="stats-title" data-translate="UI_Generales" data-key="Estadísticas Detalladas">Estadísticas Detalladas</h3>
                     <div id="detailed-stats"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="pagina.js?v=1.8"></script>
+    <script src="pagina.js?v=2.3"></script>
 </body>
 </html>
