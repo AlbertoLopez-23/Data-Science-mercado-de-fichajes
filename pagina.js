@@ -553,9 +553,6 @@ function createRadarChart(player) {
             overallrating: player.overallrating || 0,
             potential: player.potential || 0,
             strength: player.strength || 0,
-            agility: player.agility || 0,
-            headingaccuracy: player.headingaccuracy || 0,
-            longshots: player.longshots || 0,
             ballcontrol: player.ballcontrol || 0,
             acceleration: player.acceleration || 0,
             vision: player.vision || 0
@@ -565,9 +562,6 @@ function createRadarChart(player) {
             overallrating: 'Overall',
             potential: 'Potencial',
             strength: 'Fuerza',
-            agility: 'Agilidad',
-            headingaccuracy: 'Cabeceo',
-            longshots: 'Tiros lejanos',
             ballcontrol: 'Control',
             acceleration: 'Aceleración',
             vision: 'Visión'
@@ -623,6 +617,22 @@ function createRadarChart(player) {
             standingtackle: 'Entrada'
         };
     }
+
+    // Filtrar atributos con valor 0
+    const filteredRadarData = {};
+    const filteredSpanishLabels = {};
+
+    Object.keys(radarData).forEach(key => {
+        const value = parseFloat(radarData[key]) || 0;
+        if (value > 0) {
+            filteredRadarData[key] = value;
+            filteredSpanishLabels[key] = spanishLabels[key];
+        }
+    });
+
+    // Usar los datos filtrados
+    radarData = filteredRadarData;
+    spanishLabels = filteredSpanishLabels;
 
     // Limpiar el gráfico anterior
     d3.select('#radar-chart').selectAll('*').remove();
